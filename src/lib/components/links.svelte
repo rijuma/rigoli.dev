@@ -1,6 +1,6 @@
 <script lang="ts">
   import { GITHUB_TAG, LINKEDIN_TAG, RESUME_URL } from '$lib/const'
-  import { FileText } from '@lucide/svelte'
+  import { FileText, ExternalLink } from '@lucide/svelte'
 </script>
 
 <ul class="links" aria-label="Social links and resume">
@@ -10,7 +10,7 @@
       href={`https://www.linkedin.com/in/${LINKEDIN_TAG}`}
       target="_blank"
       rel="external nofollow"
-      aria-label="Marcos' Linkedin profile">linkedin</a
+      aria-label="Marcos' Linkedin profile">linkedin <ExternalLink size="0.75em" /></a
     >
   </li>
   <li>
@@ -19,7 +19,7 @@
       href={`https://github.com/${GITHUB_TAG}`}
       target="_blank"
       rel="external nofollow"
-      aria-label="Marcos' Github profile">github</a
+      aria-label="Marcos' Github profile">github <ExternalLink size="0.75em" /></a
     >
   </li>
   <li class="resume">
@@ -28,39 +28,40 @@
       <span>Resume</span>
     </a>
   </li>
-
-  <style lang="scss">
-    .links {
-      display: flex;
-      font-size: 1.6em;
-      align-items: center;
-      gap: 0.5em;
-    }
-
-    .link {
-      display: block;
-      line-height: 1;
-      transition: color 0.25s ease;
-      border-radius: 0.2rem;
-    }
-
-    .resume {
-      margin-inline-start: auto;
-
-      .button {
-        padding: 0;
-      }
-
-      span {
-        font-size: 0.7em;
-        display: none;
-      }
-    }
-
-    @include bp(md) {
-      .resume span {
-        display: block;
-      }
-    }
-  </style>
 </ul>
+
+<style lang="scss">
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .link {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5ch;
+    line-height: 1;
+    transition: color 0.25s ease;
+    border-radius: 0.2rem;
+  }
+
+  .resume {
+    margin-inline-start: auto;
+
+    .button {
+      padding: 0;
+    }
+
+    span {
+      font-size: 0.7em;
+      display: none;
+    }
+  }
+
+  @include bp(md) {
+    .resume span {
+      display: block;
+    }
+  }
+</style>
