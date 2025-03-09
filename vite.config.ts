@@ -4,21 +4,28 @@ import { sveltekit } from '@sveltejs/kit/vite'
 import { defineConfig } from 'vite'
 
 // Add package version to the env vars
-const file = fileURLToPath(new URL('package.json', import.meta.url))
-const json = readFileSync(file, 'utf8')
-const pkg = JSON.parse(json)
-process.env.PUBLIC_APP_VERSION = pkg.version
+const getPackageVersion = () => {
+  const file = fileURLToPath(new URL('package.json', import.meta.url))
+  const json = readFileSync(file, 'utf8')
+  const { version } = JSON.parse(json)
 
-export default defineConfig({
-  plugins: [sveltekit()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-        additionalData: `
+  return version
+}
+
+export default defineConfig(({}) => {
+  process.env.PUBLIC_APP_VERSION = getPackageVersion()
+
+  return {
+    plugins: [sveltekit()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          additionalData: `
           @use '$src/styles/_preprocess/index' as *;
         `,
+        },
       },
     },
-  },
+  }
 })

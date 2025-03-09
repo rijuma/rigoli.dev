@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { Links, NameTag } from '$lib/components'
+  import { Avatar, Links, NameTag } from '$lib/components'
 </script>
 
 <div class="heading">
+  <Avatar />
   <div class="info">
     <NameTag name="Marcos Rigoli" tag="rijuma" />
     <Links />
@@ -16,16 +17,6 @@
     align-items: center;
     margin-bottom: 1em;
     font-size: 1.6rem;
-  }
-
-  .links {
-    display: flex;
-    gap: 0.5em;
-    width: 100%;
-
-    span {
-      display: none;
-    }
   }
 
   .info {
@@ -43,15 +34,6 @@
       flex-direction: row;
       gap: 1em;
       font-size: 1rem;
-    }
-
-    .links {
-      flex-direction: row;
-      justify-content: space-between;
-
-      span {
-        display: block;
-      }
     }
 
     .info {
