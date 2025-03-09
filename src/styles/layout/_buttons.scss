@@ -1,0 +1,16 @@
+.button {
+  display: inline-flex;
+  text-decoration: none;
+  gap: 1ch;
+  align-items: center;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
+
+  &.block {
+    display: flex;
+  }
+
+  &.outline {
+    border: 1px solid currentColor;
+  }
+}
