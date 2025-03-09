@@ -31,7 +31,12 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> [!NOTE]
+## Docker config
+
+The `Dockerfile` and `compose.yml` are set to be run on a server running [nginx-proxy](https://github.com/nginx-proxy/nginx-proxy).
+
+## Notes
+
 > This repo is setup to run in a Node server. To deploy your app in a different environment you'd probably need to install a different [adapter](https://svelte.dev/docs/kit/adapters).
 
 > [!IMPORTANT]

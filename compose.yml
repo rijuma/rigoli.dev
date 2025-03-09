@@ -1,0 +1,15 @@
+services:
+  psicoenlace:
+    container_name: rigoli.dev
+    image: rigoli.dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=${PROXY_VIRTUAL_HOST}
+      - VIRTUAL_PORT=${PROXY_VIRTUAL_PORT}
+networks:
+  default:
+    external: true
+    name: proxy
