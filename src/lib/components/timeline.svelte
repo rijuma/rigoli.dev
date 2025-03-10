@@ -106,18 +106,24 @@
       &::before {
         border-block-start: 0;
         border-start-start-radius: 0;
-        top: calc(var(--arrow-margin) + var(--arrow-height) / 2);
+        inset-block-start: calc(var(--arrow-margin) + var(--arrow-height) / 2);
       }
 
       // Top arrow
       &::after {
         content: '';
         border-style: solid;
-        border-width: 0.8rem;
+        border-width: 1rem 0.5rem;
         border-color: transparent transparent var(--accent-color);
         position: absolute;
         inset: var(--arrow-margin) auto auto 0;
         transform: translate(calc(-50% + var(--line-width) / 2), -50%);
+      }
+    }
+
+    &:last-child {
+      &::before {
+        border-block-end: 0;
       }
     }
   }
@@ -155,7 +161,6 @@
       position: absolute;
       border-style: solid;
       border-width: var(--arrow-height) calc(var(--arrow-height) * 2);
-      // border-color: transparent transparent transparent var(--accent-color);
       border-color: transparent transparent transparent var(--accent-color);
     }
 
