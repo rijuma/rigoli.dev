@@ -13,4 +13,17 @@
   &.outline {
     border: 1px solid currentColor;
   }
+
+  &.inline {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    display: inline;
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-color-hover);
+    }
+  }
 }

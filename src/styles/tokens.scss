@@ -1,0 +1,10 @@
+:root {
+  --site-background: var(--pico-background-color);
+
+  --link-color: var(--pico-primary);
+  --link-color-hover: var(--pico-primary-hover);
+
+  --accent-color: var(--link-color);
+
+  --transition-duration: 0.25s;
+}
