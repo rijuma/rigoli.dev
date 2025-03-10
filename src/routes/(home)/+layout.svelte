@@ -16,6 +16,10 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+
+    > main > :global(section) {
+      margin-block-end: 2rem;
+    }
   }
 
   main {

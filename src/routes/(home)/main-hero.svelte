@@ -38,7 +38,7 @@
 
     .info {
       max-width: none;
-      align-items: initial;
+      align-items: flex-start;
       margin-top: 0;
     }
   }
