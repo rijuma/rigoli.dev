@@ -3,7 +3,7 @@
 </script>
 
 <footer class="footer">
-  &copy; {year} J. M. Rigoli
+  &copy; {year} Marcos Rigoli
 </footer>
 
 <style lang="scss">

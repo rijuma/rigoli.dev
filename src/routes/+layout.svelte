@@ -15,7 +15,7 @@
 
   @include bp(md) {
     .page {
-      padding: 6rem 3rem 3rem;
+      padding: 6rem 3rem 0.5rem;
     }
   }
 </style>
