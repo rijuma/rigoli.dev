@@ -2,14 +2,12 @@
   {#each Array(10) as elem}
     <div class="event">
       <a href="/" class="info">
-        <div class="aside">
-          <div class="dates">
-            <div class="from">June 2017</div>
-            <div class="to">until March 2025</div>
-          </div>
-          <div class="logo">
-            <img src="/img/companies/2u.svg" alt="Company" />
-          </div>
+        <div class="dates">
+          <div class="from">June 2017</div>
+          <div class="to">until March 2025</div>
+        </div>
+        <div class="logo">
+          <img src="/img/companies/2u.svg" alt="Company" />
         </div>
         <div class="details">
           <h3>Company</h3>
@@ -21,34 +19,37 @@
 </div>
 
 <style lang="scss">
+  // Every full block in the timeline.
   .event {
     --pin-background: var(--site-background);
     --pin-radius: 0.6rem;
-    --pin-margin: 1.4em;
+    --pin-margin: 2rem;
     --arrow-margin: 0.5rem;
     --arrow-height: 0.8rem;
     --path-color: color-mix(in oklab, var(--accent-color), transparent 50%);
     --block-color: color-mix(in oklab, var(--path-color), transparent 90%);
     --block-color-hover: color-mix(in oklab, var(--path-color), transparent 80%);
     --line-radius: 2.25rem;
-    --line-width: 3px;
+    --path-width: 3px;
     --outer-padding: 2rem;
     --inner-padding: 0.5rem;
+    --inner-radius: 1rem;
     --padding: calc(var(--outer-padding) + var(--inner-padding));
-    --title-size: 1.8rem;
-    --text-size: 1.1rem;
+    --title-size: 1.6rem;
+    --text-size: 1rem;
+    --details-background: var(--block-color-hover);
 
     position: relative;
-    margin: calc(var(--line-width) * -1);
+    margin: calc(var(--path-width) * -1);
     padding: var(--outer-padding);
 
-    // Timeline path
+    // Timeline outline path
     &::before {
       content: '';
       position: absolute;
       pointer-events: none;
       inset: 0;
-      border: var(--line-width) solid var(--path-color);
+      border: var(--path-width) solid var(--path-color);
     }
 
     &:nth-child(odd) {
@@ -60,11 +61,12 @@
       }
 
       // Left pin positions
-      .aside {
+      .info {
         &::after,
         &::before {
           transform: translate(-50%, -50%);
-          inset: var(--pin-margin) auto auto calc(((var(--padding) - var(--line-width) / 2)) * -1);
+          inset: var(--pin-margin) auto auto
+            calc((var(--outer-padding) - var(--path-width) / 2) * -1);
         }
 
         // Left pin arrow
@@ -84,20 +86,22 @@
 
       .info {
         flex-direction: row-reverse;
-      }
-
-      .aside {
         // Right pin positions
         &::before,
         &::after {
           transform: translate(50%, -50%);
-          inset: var(--pin-margin) calc(((var(--padding) - var(--line-width) / 2)) * -1) auto auto;
+          inset: var(--pin-margin) calc((var(--outer-padding) - var(--path-width) / 2) * -1) auto
+            auto;
         }
 
         // Right pin arrow
         &::before {
           transform: translate(0, -50%) scaleX(-1);
         }
+      }
+
+      .dates {
+        justify-content: flex-end;
       }
     }
 
@@ -117,58 +121,70 @@
         border-color: transparent transparent var(--accent-color);
         position: absolute;
         inset: var(--arrow-margin) auto auto 0;
-        transform: translate(calc(-50% + var(--line-width) / 2), -50%);
+        transform: translate(calc(-50% + var(--path-width) / 2), -50%);
       }
     }
 
+    // Last element on the timeline.
     &:last-child {
       &::before {
+        // Having a border bottom 0 is all it takes for that cool tail thingy!
         border-block-end: 0;
       }
     }
   }
 
+  // Inner block
   .info {
+    --pin-color: var(--path-color);
+    display: grid;
     position: relative;
-    display: flex;
-    gap: 2rem;
     line-height: 1.5;
     background: var(--block-color);
-    padding: var(--inner-padding);
-    border-radius: 1rem;
-    border: 2px solid transparent;
+    border-radius: var(--inner-radius);
     color: currentColor;
+    grid-template:
+      'dates dates' auto
+      'logo details' auto / auto 1fr;
 
     * {
       pointer-events: none;
     }
 
     &:hover {
+      box-shadow:
+        1px 1px 0 var(--accent-color),
+        -1px -1px 0 var(--accent-color),
+        -1px 1px 0 var(--accent-color),
+        1px -1px 0 var(--accent-color);
       background: var(--block-color-hover);
-      border-color: var(--accent-color);
-    }
-  }
 
-  .aside {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    &::before {
-      --arrow-height: calc(var(--pin-radius) * 1.125);
-      content: '';
-      position: absolute;
-      border-style: solid;
-      border-width: var(--arrow-height) calc(var(--arrow-height) * 2);
-      border-color: transparent transparent transparent var(--accent-color);
+      &::before,
+      &::after {
+        --pin-color: var(--accent-color);
+      }
     }
 
+    &::before,
     &::after {
       content: '';
       position: absolute;
+      transition: border-color var(--transition-duration) ease;
+      pointer-events: none;
+    }
+
+    // Pin arrow
+    &::before {
+      --arrow-height: calc(var(--pin-radius) * 1.125);
+      border-style: solid;
+      border-width: var(--arrow-height) calc(var(--arrow-height) * 2);
+      border-color: transparent transparent transparent var(--pin-color);
+    }
+
+    // Pin circle
+    &::after {
       border-radius: 99rem;
-      border: var(--line-width) solid var(--accent-color);
+      border: var(--path-width) solid var(--pin-color);
       width: calc(var(--pin-radius) * 2);
       height: calc(var(--pin-radius) * 2);
       background: var(--pin-background);
@@ -176,9 +192,13 @@
   }
 
   .dates {
+    grid-area: dates;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
+    padding: 0.6rem;
   }
 
   .from {
@@ -191,17 +211,24 @@
   }
 
   .logo {
-    display: grid;
-    place-items: center;
-    flex-grow: 1;
+    grid-area: logo;
+    text-align: center;
+    padding: 1rem;
+    background: var(--details-background);
+    border-end-start-radius: var(--inner-radius);
 
     img {
+      width: 100%;
       max-width: 3rem;
     }
   }
 
   .details {
+    grid-area: details;
     flex-grow: 1;
+    padding-inline: 1rem;
+    background: var(--details-background);
+    border-end-end-radius: var(--inner-radius);
   }
 
   h3 {
@@ -213,5 +240,50 @@
   p {
     font-size: var(--text-size);
     color: currentColor;
+  }
+
+  @include bp(md) {
+    .event {
+      --title-size: 1.8rem;
+      --text-size: 1.1rem;
+
+      &:nth-child(odd) {
+        .info {
+          grid-template:
+            'dates details' auto
+            'logo details' auto / auto 1fr;
+        }
+
+        .details {
+          border-radius: 0 var(--inner-radius) var(--inner-radius) 0;
+        }
+      }
+
+      &:nth-child(even) {
+        .info {
+          grid-template:
+            'details dates' auto
+            'details logo' auto / 1fr auto;
+        }
+
+        .details {
+          border-radius: var(--inner-radius) 0 0 var(--inner-radius);
+        }
+      }
+    }
+
+    .logo {
+      background: none;
+    }
+
+    .dates {
+      flex-direction: column;
+      gap: 0;
+      padding-block: 0;
+    }
+
+    .details {
+      border-radius: var(--inner-radius) 0 0 var(--inner-radius);
+    }
   }
 </style>
