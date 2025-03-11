@@ -1,4 +1,6 @@
 <script lang="ts">
+  import '$lib/stores/color-mode.svelte' // Sets the color theme
+
   let { children } = $props()
 </script>
 
