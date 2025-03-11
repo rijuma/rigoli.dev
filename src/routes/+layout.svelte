@@ -8,6 +8,10 @@
 
 <style lang="scss">
   .page {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
     max-width: 80ch;
     margin-inline: auto;
     padding: 2rem 1rem 1rem;

@@ -64,7 +64,7 @@
     {/each}
   </div>
   <div class="toggle" class:expanded>
-    <button class="button" onclick={toggle}>
+    <button class="button outline" onclick={toggle}>
       {#if !expanded}
         See older jobs
       {:else}
@@ -88,6 +88,7 @@
     place-items: center;
     padding-block: 4rem 2rem;
     background: linear-gradient(to bottom, transparent, var(--site-background) 50%);
+    font-size: 0.8rem;
 
     &.expanded {
       position: static;
@@ -341,6 +342,7 @@
       border-radius: 99rem;
       aspect-ratio: 1 / 1;
       overflow: hidden;
+      box-shadow: 0 0 0.5em 0 var(--path-color);
     }
   }
 

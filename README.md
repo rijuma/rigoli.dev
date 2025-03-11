@@ -37,7 +37,7 @@ The `Dockerfile` and `compose.yml` are set to be run on a server running [nginx-
 
 ## Notes
 
-> This repo is setup to run in a Node server. To deploy your app in a different environment you'd probably need to install a different [adapter](https://svelte.dev/docs/kit/adapters).
+> This repo is setup to run in a Node server. To deploy your app in a different environment you'd probably need to use a different [adapter](https://svelte.dev/docs/kit/adapters).
 
 > [!IMPORTANT]
 > You can freely use or clone this repository as inspiration to build your own personal website. If you do clone this repo, please make sure to remove any of my personal information.

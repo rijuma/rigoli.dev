@@ -4,25 +4,17 @@
   let { children } = $props()
 </script>
 
-<div class="layout">
-  <main>
-    {@render children()}
-  </main>
-  <SiteFooter />
-</div>
+<main>
+  {@render children()}
+</main>
+<SiteFooter />
 
 <style lang="scss">
-  .layout {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-
-    > main > :global(section) {
-      margin-block-end: 2rem;
-    }
-  }
-
   main {
     flex-grow: 1;
+
+    > :global(section) {
+      margin-block-end: 2rem;
+    }
   }
 </style>

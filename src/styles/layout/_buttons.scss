@@ -3,8 +3,9 @@
   text-decoration: none;
   gap: 1ch;
   align-items: center;
-  border-radius: 0.2rem;
-  padding: 0.2rem 0.4rem;
+  border-radius: 0.4em;
+  padding: 0.2em 0.4em;
+  font-size: inherit;
 
   &.block {
     display: flex;
