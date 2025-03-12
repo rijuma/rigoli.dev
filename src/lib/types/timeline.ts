@@ -1,6 +1,6 @@
 export type TimelineEntry = {
   name: string
-  href: string
+  slug: string
   pic: string
   from: Date
   to?: Date

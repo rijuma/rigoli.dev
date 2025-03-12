@@ -23,10 +23,10 @@
 
 <div class="timeline">
   <div class="data">
-    {#each filteredData as { name, href, pic, from, to, role, tech, intro }, index}
+    {#each filteredData as { name, slug, pic, from, to, role, tech, intro }, index}
       {@const reduced = !expanded && index === filteredData.length - 1}
       <div class="event">
-        <a {href} class="info" class:reduced>
+        <a href={`/jobs/${slug}`} class="info" class:reduced>
           <div class="dates">
             <div class="from">{formatDate(from)}</div>
             <div class="to">

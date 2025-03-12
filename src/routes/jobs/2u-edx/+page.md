@@ -8,7 +8,7 @@ tech: ['NodeJS', 'ReactJS', 'Python (Django)']
 intro: ['Lorem ipsum dolor sit amet']
 ---
 
-# 2U / edX
+# {name} sarasa
 
 Lorem ipsum dolor sit amet.
 
