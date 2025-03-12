@@ -1,64 +1,63 @@
 import type { LayoutServerLoad } from './$types'
-import { getGithubUserData } from '$lib/server/services'
+import { getCachedGithubUserData, getGithubUserData } from '$lib/server/services'
 import { error } from '@sveltejs/kit'
-import type { GithubUser } from '$lib/types'
+import type { TimelineEntry } from '$lib/types'
 
 // Dynamic endpoint
 export const prerender = false
 
-const TTL = 60 * 60 * 1000 // 1 hour cache
+// The job entries will always be the same unless restarting, so we can just cache it in memory.
+let jobsCache: TimelineEntry[]
 
-// This is a global variable. It would be shared on every render for every request.
-let cache:
-  | {
-      github: GithubUser
-      exp: number
-    }
-  | undefined = undefined
+type JobEntry = Omit<TimelineEntry, 'from' | 'to'> & {
+  from: [year: number, month: number]
+  to?: [year: number, month: number]
+}
 
-let currentFetch: ReturnType<typeof getGithubUserData> | null = null
+const getJobsMetadata = async () => {
+  if (jobsCache) return jobsCache
 
-// Just a queue if multiple requests want to fetch at the same time.
-const fetchGithub = async () => {
-  if (currentFetch) return currentFetch
+  const metadata = await import.meta.glob('$lib/../routes/jobs/**/*.md', {
+    eager: true,
+    import: 'metadata',
+  })
 
-  currentFetch = getGithubUserData()
-  currentFetch.finally(() => (currentFetch = null)) // Clear
+  const jobs = (Object.values(metadata) as JobEntry[]).map(({ from, to, ...rest }) => {
+    const fromDate = new Date(from[0], from[1], 1)
+    const toDate = to ? new Date(from[0], from[1], 1) : undefined
 
-  return currentFetch
+    return {
+      ...rest,
+      from: fromDate,
+      to: toDate,
+    } satisfies TimelineEntry
+  })
+
+  jobs.sort((a, b) => (a.from < b.from ? 1 : -1))
+
+  jobsCache = jobs
+
+  return jobsCache
 }
 
 export const load = (async () => {
   try {
-    const now = Date.now()
+    const jobsAsync = getJobsMetadata()
 
-    // If the cached data is fresh, we return it.
-    if (cache && cache.exp + TTL > now)
-      return {
-        github: cache.github,
-      }
+    const githubAsync = getCachedGithubUserData()
 
-    // Else, we fetch the github endpoint and save it to the cache.
-    const userData = await fetchGithub()
+    const [github, jobs] = await Promise.all([githubAsync, jobsAsync])
 
-    if (!userData) throw new Error()
-
-    cache = {
-      github: userData,
-      exp: Date.now(),
-    }
+    console.log({
+      github,
+      jobs,
+    })
 
     return {
-      github: userData,
+      github,
+      jobs,
     }
-  } catch (e) {}
-
-  // If fetching fails, we return the last cached data anyways (if any).
-  if (cache)
-    return {
-      github: cache.github,
-    }
-
-  // If even that fails, then we are f*cked...
-  return error(503)
+  } catch (e) {
+    return error(503)
+  }
 }) satisfies LayoutServerLoad

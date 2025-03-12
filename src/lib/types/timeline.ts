@@ -1,10 +1,10 @@
 export type TimelineEntry = {
-  slug: string
   name: string
+  href: string
   pic: string
   from: Date
   to?: Date
   role: string
   tech: string[]
-  info: string[]
+  intro: string[]
 }

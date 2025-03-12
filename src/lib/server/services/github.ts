@@ -49,3 +49,52 @@ export async function getGithubUserData() {
     return
   }
 }
+
+const TTL = 60 * 60 * 1000 // 1 hour cache
+
+// This is a global variable. It would be shared on every render for every request.
+let cache:
+  | {
+      github: GithubUser
+      exp: number
+    }
+  | undefined = undefined
+
+let currentFetch: ReturnType<typeof getGithubUserData> | null = null
+
+// Just a queue if multiple requests want to fetch at the same time.
+const fetchGithub = async () => {
+  if (currentFetch) return currentFetch
+
+  currentFetch = getGithubUserData()
+  currentFetch.finally(() => (currentFetch = null)) // Clear
+
+  return currentFetch
+}
+
+export async function getCachedGithubUserData() {
+  try {
+    const now = Date.now()
+
+    // If the cached data is fresh, we return it.
+    if (cache && cache.exp + TTL > now) return cache.github
+
+    // Else, we fetch the github endpoint and save it to the cache.
+    const userData = await fetchGithub()
+
+    if (!userData) throw new Error()
+
+    cache = {
+      github: userData,
+      exp: Date.now(),
+    }
+
+    return userData
+  } catch (e) {}
+
+  // If fetching fails, we return the last cached data anyways (if any).
+  if (cache) return cache.github
+
+  // If even that fails, then we are f*cked...
+  throw new Error('Service unavailable.')
+}
