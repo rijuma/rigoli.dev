@@ -7,12 +7,11 @@
     transition(() => {
       colorMode.value = colorMode.value === 'light' ? 'dark' : 'light'
     })
-    console.log({ colorMode: colorMode.value })
   }
 </script>
 
 <button
-  class="button inline"
+  class="theme-switcher button inline"
   onclick={toggle}
   aria-label="Toggles Light and Dark mode"
   aria-live="polite"
@@ -29,6 +28,11 @@
 </button>
 
 <style lang="scss">
+  .theme-switcher {
+    display: block;
+    view-transition-name: theme-switcher;
+  }
+
   .animate-sun,
   .animate-moon {
     rotate: 0deg;

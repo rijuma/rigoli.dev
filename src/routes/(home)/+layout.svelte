@@ -12,9 +12,19 @@
 <style lang="scss">
   main {
     flex-grow: 1;
+    padding: 2rem var(--page-inline-padding) var(--page-block-padding);
+    max-width: var(--page-max-width);
+    width: 100%;
+    margin-inline: auto;
 
     > :global(section) {
       margin-block-end: 6rem;
+    }
+  }
+
+  @include bp(md) {
+    main {
+      padding-block-start: 6rem;
     }
   }
 </style>

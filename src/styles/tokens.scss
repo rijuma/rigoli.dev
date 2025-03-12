@@ -7,5 +7,16 @@
   --accent-color: var(--link-color);
   --accent-color-high: var(--link-color-hover);
 
+  --page-inline-padding: 1rem;
+  --page-block-padding: 0.5rem;
+  --page-max-width: 80ch;
+
   --transition-duration: 0.25s;
+}
+
+@include bp(md) {
+  :root {
+    --page-inline-padding: 3rem;
+    --page-block-padding: 1rem;
+  }
 }

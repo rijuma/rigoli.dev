@@ -2,9 +2,14 @@
   import { GITHUB_TAG, LINKEDIN_TAG, RESUME_URL } from '$lib/const'
   import { FileText, ExternalLink } from '@lucide/svelte'
   import { LinkedinIcon, GithubIcon } from './icons'
+
+  type Props = {
+    compact?: boolean
+  }
+  let { compact = false }: Props = $props()
 </script>
 
-<ul class="links" aria-label="Social links and resume">
+<ul class="links" class:compact aria-label="Social links and resume">
   <li>
     <a
       class="link linkedin"
@@ -13,9 +18,13 @@
       rel="external nofollow"
       aria-label="Marcos' Linkedin profile"
     >
-      <LinkedinIcon />
-      <span>linkedin <ExternalLink /></span></a
-    >
+      <em style="view-transition-name: links-linkedin-icon;">
+        <LinkedinIcon />
+      </em>
+      {#if !compact}
+        <span class="label">linkedin&nbsp;<ExternalLink /></span>
+      {/if}
+    </a>
   </li>
   <li>
     <a
@@ -25,16 +34,22 @@
       rel="external nofollow"
       aria-label="Marcos' Github profile"
     >
-      <GithubIcon />
-      <span>
-        github <ExternalLink />
-      </span></a
-    >
+      <em style="view-transition-name: links-github-icon;">
+        <GithubIcon />
+      </em>
+      {#if !compact}
+        <span class="label">github&nbsp;<ExternalLink /></span>
+      {/if}
+    </a>
   </li>
   <li>
     <a class="link block" href={RESUME_URL} target="_blank" rel="external nofollow">
-      <FileText />
-      <span>Resume <ExternalLink /></span>
+      <em style="view-transition-name: links-resume-icon;">
+        <FileText />
+      </em>
+      {#if !compact}
+        <span class="label">Resume&nbsp;<ExternalLink /></span>
+      {/if}
     </a>
   </li>
 </ul>
@@ -44,7 +59,6 @@
     display: flex;
     align-items: center;
     gap: 1em;
-    margin-top: 0.5rem;
   }
 
   .link {
@@ -52,22 +66,21 @@
     align-items: center;
     gap: 0.5ch;
     transition: color 0.25s ease;
-    border-radius: 0.2rem;
+    border-radius: 0.2em;
 
     :global(span svg) {
-      font-size: 0.8rem;
+      font-size: 0.8em;
     }
   }
 
-  .link span {
+  .link span.label {
     line-height: 1;
     display: none;
   }
 
   @include bp(md) {
-    .link span {
+    .link span.label {
       display: flex;
-      gap: 0.5ch;
       align-items: flex-end;
     }
   }

@@ -30,7 +30,7 @@
     border-radius: 99rem;
     height: 0.5rem;
     overflow: hidden;
-    border: 1px solid var(--accent-color-high);
+    box-shadow: 0 0 1px 1px var(--accent-color-high);
 
     &:before {
       --percent: calc((100% - var(--value) / var(--max, 1) * 100%));

@@ -31,16 +31,15 @@
     --height: 1.4em;
     --duration: 0.25s;
 
-    display: inline-block;
+    display: block;
     font-family: monospace;
     font-size: 1.1em;
     line-height: var(--height);
     height: var(--height);
     overflow: hidden;
     user-select: none;
-    cursor: default;
-    margin-bottom: 0.4em;
     color: currentColor;
+    view-transition-name: nametag;
 
     span {
       --offset: calc(var(--index) / var(--count) * var(--duration));

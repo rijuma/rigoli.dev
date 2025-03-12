@@ -18,7 +18,13 @@
   .skills {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  @include bp(sm) {
+    .skills {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   @include bp(md) {
