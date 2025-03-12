@@ -1,7 +1,8 @@
 <script lang="ts">
   import MainHero from './main-hero.svelte'
-  import Experience from './experience.svelte'
   import Intro from './intro.svelte'
+  import Skills from './skills.svelte'
+  import Experience from './experience.svelte'
 </script>
 
 <header>
@@ -10,6 +11,10 @@
 
 <section>
   <Intro />
+</section>
+
+<section>
+  <Skills />
 </section>
 
 <section>
