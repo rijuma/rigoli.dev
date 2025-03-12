@@ -1,12 +1,15 @@
 <script lang="ts">
-  import { Avatar, Links, NameTag } from '$lib/components'
+  import { Avatar, Links, NameTag, ThemeSwitcher } from '$lib/components'
 </script>
 
 <div class="heading">
   <Avatar />
   <div class="info">
     <NameTag name="Marcos Rigoli" tag="rijuma" />
-    <Links />
+    <div class="actions">
+      <Links />
+      <ThemeSwitcher />
+    </div>
   </div>
 </div>
 
@@ -27,6 +30,13 @@
     width: 100%;
     max-width: 10em;
     margin-top: 0.6em;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
   }
 
   @include bp(md) {

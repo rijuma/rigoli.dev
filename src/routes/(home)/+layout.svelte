@@ -14,7 +14,7 @@
     flex-grow: 1;
 
     > :global(section) {
-      margin-block-end: 2rem;
+      margin-block-end: 6rem;
     }
   }
 </style>

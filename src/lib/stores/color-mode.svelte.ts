@@ -4,7 +4,7 @@ import { persistedState } from '$lib/utils'
 type ColorMode = 'auto' | 'light' | 'dark'
 
 const detectMode = (): ColorMode => {
-  if (!browser) return 'auto'
+  if (!browser || !window.matchMedia) return 'auto'
 
   const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 
