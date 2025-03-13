@@ -1,6 +1,6 @@
 <script lang="ts">
   import { transition } from '$lib/utils'
-  import { Typewriter, Timeline } from '$lib/components'
+  import { Typewriter } from '$lib/components'
 
   let more = $state(false)
   let less = $state(false)
@@ -49,7 +49,7 @@
     &.less {
       opacity: 0;
       pointer-events: none;
-      transition: opacity var(--transition-duration) ease;
+      transition: opacity var(--ui-transition-duration) ease;
 
       &.show {
         opacity: 1;

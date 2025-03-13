@@ -10,4 +10,5 @@ export type GithubUser = {
   avatarUrl: string
   profileUrl: string
   orgs: GithubOrg[]
+  hireable: boolean
 }

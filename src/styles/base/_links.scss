@@ -1,0 +1,14 @@
+a:not([role='button']),
+[role='link'] {
+  --link-hover-mix: #fff;
+  color: var(--ui-link-fg);
+  text-decoration: none;
+
+  &.external::after {
+    content: '☍';
+  }
+
+  &:hover {
+    color: var(--ui-link-fg-hover);
+  }
+}

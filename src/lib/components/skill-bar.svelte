@@ -60,15 +60,15 @@
     border-radius: 99rem;
     height: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 0 1px 1px var(--accent-color-high);
+    box-shadow: 0 0 1px 1px var(--ui-accent-color-high);
 
     &:before {
       --percent: calc((100% - var(--value) / var(--max, 1) * 100%));
       content: '';
       position: absolute;
       inset: 0 var(--percent) 0 0;
-      background: color-mix(in oklab, var(--accent-color), transparent var(--percent));
-      border-inline-end: 1px solid var(--accent-color-high);
+      background: color-mix(in oklab, var(--ui-accent-color), transparent var(--percent));
+      border-inline-end: 1px solid var(--ui-accent-color-high);
     }
   }
 </style>

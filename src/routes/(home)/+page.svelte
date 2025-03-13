@@ -24,6 +24,8 @@
   <Experience jobs={data.jobs} />
 </section>
 
-<section>
-  <Schedule />
-</section>
+{#if data.github.hireable}
+  <section>
+    <Schedule />
+  </section>
+{/if}

@@ -39,7 +39,7 @@
   .actions {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     width: 100%;
   }
 

@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use 'sass:math';
+@use '../_preprocess/breakpoints' as bp;
+
+$base-rem-px: 16px;
+
+html,
+body {
+  color-scheme: light dark;
+  min-height: 100dvh;
+  background: var(--ui-global-bg);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+body {
+  overflow-y: auto;
+}
+
+.container {
+  margin: auto;
+  max-width: math.div(map.get(bp.$bps, 'xl'), $base-rem-px) * 1rem;
+  padding-inline: var(--ui-padding-viewport);
+
+  &-lg {
+    margin: auto;
+    max-width: math.div(map.get(bp.$bps, 'lg'), $base-rem-px) * 1rem;
+    padding-inline: 0.5rem;
+  }
+
+  &-md {
+    margin: auto;
+    max-width: math.div(map.get(bp.$bps, 'md'), $base-rem-px) * 1rem;
+    padding-inline: 0.5rem;
+  }
+
+  &-sm {
+    margin: auto;
+    max-width: math.div(map.get(bp.$bps, 'sm'), $base-rem-px) * 1rem;
+    padding-inline: 0.5rem;
+  }
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+// Multiline tooltips
+[data-tooltip] {
+  border: 0;
+
+  &::before {
+    min-width: 100%;
+    display: inline-block;
+    white-space: collapse;
+  }
+}

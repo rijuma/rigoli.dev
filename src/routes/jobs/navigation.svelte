@@ -26,8 +26,9 @@
   .navigation {
     position: sticky;
     top: 0;
-    background: var(--site-background);
-    transform: box-shadow var(--transition-duration) ease;
+    background: var(--ui-global-bg);
+    transform: box-shadow var(--ui-transition-duration) ease;
+    z-index: var(--ui-z-header);
 
     &.stuck {
       box-shadow: 0 0 5px 5px #0008;
@@ -42,9 +43,9 @@
   .frame {
     display: flex;
     justify-content: space-between;
-    max-width: var(--page-max-width);
+    max-width: var(--ui-page-max-width);
     width: 100%;
     margin-inline: auto;
-    padding: 0.5rem var(--page-inline-padding);
+    padding: 0.5rem var(--ui-page-inline-padding);
   }
 </style>

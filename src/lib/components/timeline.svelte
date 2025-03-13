@@ -88,7 +88,7 @@
     display: grid;
     place-items: center;
     padding-block: 4rem 2rem;
-    background: linear-gradient(to bottom, transparent, var(--site-background) 50%);
+    background: linear-gradient(to bottom, transparent, var(--ui-global-bg) 50%);
     font-size: 0.8rem;
 
     &.expanded {
@@ -100,12 +100,12 @@
 
   // Every full block in the timeline.
   .event {
-    --pin-background: var(--site-background);
+    --pin-background: var(--ui-global-bg);
     --pin-radius: 0.6rem;
     --pin-margin: 1.8rem;
     --arrow-margin: 0.5rem;
     --arrow-height: 0.8rem;
-    --path-color: color-mix(in oklab, var(--accent-color), transparent 50%);
+    --path-color: color-mix(in oklab, var(--ui-accent-color), transparent 50%);
     --block-color: color-mix(in oklab, var(--path-color), transparent 90%);
     --block-color-hover: color-mix(in oklab, var(--path-color), transparent 80%);
     --line-radius: 2.25rem;
@@ -197,7 +197,7 @@
         content: '';
         border-style: solid;
         border-width: 1rem 0.5rem;
-        border-color: transparent transparent var(--accent-color);
+        border-color: transparent transparent var(--ui-accent-color);
         position: absolute;
         inset: var(--arrow-margin) auto auto 0;
         transform: translate(calc(-50% + var(--path-width) / 2), -50%);
@@ -238,19 +238,19 @@
     // Outline when hovering
     &:hover {
       box-shadow:
-        1px 1px 0 var(--accent-color),
-        -1px -1px 0 var(--accent-color),
-        -1px 1px 0 var(--accent-color),
-        1px -1px 0 var(--accent-color);
+        1px 1px 0 var(--ui-accent-color),
+        -1px -1px 0 var(--ui-accent-color),
+        -1px 1px 0 var(--ui-accent-color),
+        1px -1px 0 var(--ui-accent-color);
       background: var(--block-color-hover);
 
       &::before,
       &::after {
-        --pin-color: var(--accent-color);
+        --pin-color: var(--ui-accent-color);
       }
 
       h3 {
-        color: var(--link-color-hover);
+        color: var(--ui-link-fg-hover);
       }
     }
 
@@ -259,7 +259,7 @@
     &::after {
       content: '';
       position: absolute;
-      transition: border-color var(--transition-duration) ease;
+      transition: border-color var(--ui-transition-duration) ease;
       pointer-events: none;
     }
 
@@ -359,7 +359,7 @@
     font-size: var(--title-size);
     line-height: 1.5;
     margin-block-end: 0;
-    color: var(--link-color);
+    color: var(--ui-link-fg);
   }
 
   p {

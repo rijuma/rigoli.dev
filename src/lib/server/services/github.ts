@@ -7,10 +7,12 @@ const githubUserApiSchema = z
   .object({
     html_url: z.string().url(),
     avatar_url: z.string().url(),
+    hireable: z.boolean(),
   })
-  .transform(({ html_url: profileUrl, avatar_url: avatarUrl }) => ({
+  .transform(({ html_url: profileUrl, avatar_url: avatarUrl, ...rest }) => ({
     profileUrl,
     avatarUrl,
+    ...rest,
   }))
 
 const githubUserOrgsSchema = z.array(
@@ -20,11 +22,11 @@ const githubUserOrgsSchema = z.array(
       avatar_url: z.string().url(),
       description: z.string(),
     })
-    .transform(({ login: tag, avatar_url: avatarUrl, description }) => ({
+    .transform(({ login: tag, avatar_url: avatarUrl, ...rest }) => ({
       tag,
       profileUrl: `${GITHUB_URL}/org/${tag}`,
       avatarUrl,
-      description,
+      ...rest,
     })),
 )
 

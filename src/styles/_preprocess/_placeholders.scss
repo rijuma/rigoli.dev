@@ -1,0 +1,175 @@
+@use './colors' as *;
+
+%_panel {
+  border-width: var(--ui-panel-border-width);
+  border-style: var(--ui-panel-border-style);
+}
+
+// Panels
+%panel-05 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-05);
+  border-color: var(--ui-panel-30);
+  color: var(--ui-lighter-text);
+}
+
+%panel-10 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-10);
+  border-color: var(--ui-panel-40);
+  color: var(--ui-lighter-text);
+}
+
+%panel-20 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-20);
+  border-color: var(--ui-panel-50);
+  color: var(--ui-lighter-text);
+}
+
+%panel-30 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-30);
+  border-color: var(--ui-panel-50);
+  color: var(--ui-lighter-text);
+}
+
+%panel-40 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-40);
+  border-color: var(--ui-panel-60);
+  color: var(--ui-lighter-text);
+}
+
+%panel-50 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-50);
+  border-color: var(--ui-panel-40);
+  color: var(--ui-light-text);
+}
+
+%panel-60 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-60);
+  border-color: var(--ui-panel-40);
+  color: var(--ui-light-text);
+}
+
+%panel-70 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-70);
+  border-color: var(--ui-panel-50);
+  color: var(--ui-light-text);
+}
+
+%panel-80 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-80);
+  border-color: var(--ui-panel-60);
+  color: var(--ui-light-text);
+}
+
+%panel-90 {
+  @extend %_panel;
+
+  background-color: var(--ui-panel-90);
+  border-color: var(--ui-panel-80);
+  color: var(--ui-light-text);
+}
+
+// Primary
+%primary-05 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-05);
+  border-color: var(--ui-primary-30);
+  color: var(--ui-dark-primary-text);
+}
+
+%primary-10 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-10);
+  border-color: var(--ui-primary-40);
+  color: var(--ui-dark-primary-text);
+}
+
+%primary-20 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-20);
+  border-color: var(--ui-primary-50);
+  color: var(--ui-dark-primary-text);
+}
+
+%primary-30 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-30);
+  border-color: var(--ui-primary-50);
+  color: var(--ui-dark-primary-text);
+}
+
+%primary-40 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-40);
+  border-color: var(--ui-primary-60);
+  color: var(--ui-lighter-primary-text);
+}
+
+%primary-50 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-50);
+  border-color: var(--ui-primary-40);
+  color: var(--ui-light-primary-text);
+}
+
+%primary-60 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-60);
+  border-color: var(--ui-primary-40);
+  color: var(--ui-light-primary-text);
+}
+
+%primary-70 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-70);
+  border-color: var(--ui-primary-50);
+  color: var(--ui-light-primary-text);
+}
+
+%primary-80 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-80);
+  border-color: var(--ui-primary-60);
+  color: var(--ui-light-primary-text);
+}
+
+%primary-90 {
+  @extend %_panel;
+
+  background-color: var(--ui-primary-90);
+  border-color: var(--ui-primary-80);
+  color: var(--ui-light-primary-text);
+}
+
+%artistic-text {
+  font-family: 'Fantasy';
+  background: linear-gradient(180deg, #ff9955ff, #ae0000ff);
+  background-clip: text;
+  color: transparent;
+}

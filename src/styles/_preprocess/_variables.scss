@@ -1,0 +1,7 @@
+@mixin vars() {
+  @layer components {
+    :global(:root) {
+      @content;
+    }
+  }
+}

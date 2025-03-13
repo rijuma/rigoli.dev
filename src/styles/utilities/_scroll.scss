@@ -1,0 +1,17 @@
+@use '../_preprocess/index' as *;
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@include bp($to: mobile) {
+  .no-scroll-mobile {
+    overflow: hidden;
+  }
+}
+
+@include bp(mobile) {
+  .no-scroll-desktop {
+    overflow: hidden;
+  }
+}

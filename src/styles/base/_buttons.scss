@@ -1,0 +1,132 @@
+button {
+  all: revert;
+  background: transparent;
+  border: 0;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.button[role='link'] {
+  background: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.button:not([role='link']) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1ch;
+  padding: 0.8em 1em;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border-radius: 0.25rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.button {
+  &:hover {
+    color: color-mix(in hsl, var(--text-color), var(--hover-mix) 10%);
+    background: color-mix(in hsl, var(--bg-color), var(--hover-mix) 10%);
+  }
+
+  &.icon {
+    box-sizing: border-box;
+    --size: 1.4em;
+    --padding: 0.6em;
+    aspect-ratio: 1 / 1;
+    padding: 0.3em;
+    vertical-align: top;
+    width: calc(var(--size) + 2 * var(--padding));
+    height: calc(var(--size) + 2 * var(--padding));
+
+    > svg {
+      display: block;
+      width: var(--size);
+      height: var(--size);
+    }
+  }
+
+  &.current {
+    --text-color: currentColor;
+  }
+
+  &.current-as-bg {
+    --bg-color: currentColor;
+  }
+
+  &.inert {
+    all: revert;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  &.small {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.6em;
+  }
+
+  &.block {
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid var(--bg-color);
+
+    &:hover {
+      background: transparent;
+      border-color: color-mix(in hsl, var(--bg-color), var(--hover-mix) 10%);
+    }
+  }
+
+  &.inline {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    display: inline;
+    color: var(--ui-link-fg);
+
+    &:hover {
+      color: var(--ui-link-fg-hover);
+    }
+  }
+
+  &.danger {
+    --bg-color: var(--ui-danger-bg);
+    --text-color: var(--ui-danger-fg);
+  }
+
+  &.action {
+    background: var(--ui-primary-70);
+    border: var(--ui-primary-90);
+
+    &:hover {
+      background: var(--ui-primary-60);
+    }
+  }
+
+  &.cancel {
+    background: var(--ui-panel-40);
+    border: var(--ui-panel-70);
+
+    &:hover {
+      background: var(--ui-panel-30);
+    }
+  }
+}

@@ -37,8 +37,8 @@
   .animate-moon {
     rotate: 0deg;
     transition:
-      rotate var(--transition-duration) ease,
-      opacity var(--transition-duration) ease;
+      rotate var(--ui-transition-duration) ease,
+      opacity var(--ui-transition-duration) ease;
     opacity: 1;
 
     @starting-style {

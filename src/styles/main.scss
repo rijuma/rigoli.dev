@@ -1,7 +1,19 @@
-@layer pico, base, tokens;
+@use 'sass:meta';
 
-@import '@picocss/pico' layer(pico);
+@layer normalize, tokens, base, components, utilities;
 
-@import './layout/index.scss' layer(base);
+@layer normalize {
+  @include meta.load-css('normalize.css/normalize');
+}
 
-@import './tokens.scss' layer(tokens);
+@layer tokens {
+  @include meta.load-css('tokens');
+}
+
+@layer base {
+  @include meta.load-css('./base/index');
+}
+
+@layer utilities {
+  @include meta.load-css('./utilities/index');
+}

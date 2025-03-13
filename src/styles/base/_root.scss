@@ -1,0 +1,41 @@
+@use 'sass:math';
+@use '../_preprocess/breakpoints' as *;
+
+$base-text-size: 16; // 16px
+
+:root {
+  --root-font-size: 100%; // 16px
+  view-transition-name: none;
+
+  // REM scaling - Using Pico.css as reference.
+  @include bp(sm) {
+    --root-font-size: #{math.div(17, $base-text-size) * 1rem};
+  }
+
+  @include bp(md) {
+    --root-font-size: #{math.div(18, $base-text-size) * 1rem}; // 18px
+  }
+
+  @include bp(lg) {
+    --root-font-size: #{math.div(19, $base-text-size) * 1rem}; // 19px
+  }
+
+  @include bp(xl) {
+    --root-font-size: #{math.div(20, $base-text-size) * 1rem}; // 20px
+  }
+
+  @include bp(xxl) {
+    --root-font-size: #{math.div(21, $base-text-size) * 1rem}; // 21px
+  }
+}
+
+:where(:root) {
+  transition-behavior: allow-discrete;
+  font-size: var(--root-font-size);
+}
+
+.icon,
+.lucide-icon {
+  width: 1em;
+  height: 1em;
+}

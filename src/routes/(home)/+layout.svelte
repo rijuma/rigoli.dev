@@ -12,8 +12,8 @@
 <style lang="scss">
   main {
     flex-grow: 1;
-    padding: 2rem var(--page-inline-padding) var(--page-block-padding);
-    max-width: var(--page-max-width);
+    padding: 2rem var(--ui-page-inline-padding) var(--ui-page-block-padding);
+    max-width: var(--ui-page-max-width);
     width: 100%;
     margin-inline: auto;
 
