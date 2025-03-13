@@ -24,7 +24,7 @@ const getJobsMetadata = async () => {
 
   const jobs = (Object.values(metadata) as JobEntry[]).map(({ from, to, ...rest }) => {
     const fromDate = new Date(from[0], from[1], 1)
-    const toDate = to ? new Date(from[0], from[1], 1) : undefined
+    const toDate = to ? new Date(to[0], to[1], 1) : undefined
 
     return {
       ...rest,
@@ -47,11 +47,6 @@ export const load = (async () => {
     const githubAsync = getCachedGithubUserData()
 
     const [github, jobs] = await Promise.all([githubAsync, jobsAsync])
-
-    console.log({
-      github,
-      jobs,
-    })
 
     return {
       github,

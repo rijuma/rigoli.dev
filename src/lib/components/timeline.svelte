@@ -1,6 +1,7 @@
 <script lang="ts">
-  import type { TimelineEntry } from '$lib/types'
   import { transition } from '$lib/utils'
+
+  import type { TimelineEntry } from '$lib/types'
 
   type Props = {
     data: TimelineEntry[]
@@ -264,7 +265,7 @@
 
     // Pin arrow
     &::before {
-      --arrow-height: calc(var(--pin-radius) * 1.125);
+      --arrow-height: calc(var(--pin-radius) * 1.05);
       border-style: solid;
       border-width: var(--arrow-height) calc(var(--arrow-height) * 2);
       border-color: transparent transparent transparent var(--pin-color);

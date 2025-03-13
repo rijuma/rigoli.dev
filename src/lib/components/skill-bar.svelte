@@ -1,15 +1,25 @@
 <script lang="ts">
+  import { CircleHelp } from '@lucide/svelte'
+
   type Props = {
     label: string
+    tooltip?: string
     value: number
     max?: number
   }
-  let { label, value, max = 10 }: Props = $props()
+  let { label, tooltip, value, max = 10 }: Props = $props()
 </script>
 
-<div class="skill" aria-label={`Proficiency in ${label}: ${value} out of ${max}.`}>
+<div
+  class="skill"
+  aria-label={`Proficiency in ${label}: ${value} out of ${max}.`}
+  data-tooltip={tooltip}
+>
   <div class="label" aria-hidden="true">
     {label}
+    {#if tooltip}
+      <span class="questionmark"><CircleHelp /></span>
+    {/if}
   </div>
   <div class="gauge" style={`--value: ${value}; --max: ${max};`} aria-hidden="true"></div>
 </div>
@@ -23,6 +33,26 @@
     gap: 0.25rem;
     line-height: 1;
     font-size: 0.8rem;
+
+    // Tooltip
+    &::before {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+  }
+
+  .label {
+    display: flex;
+    gap: 0.5ch;
+    line-height: 1.2;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .questionmark {
+    font-size: 0.8em;
+    display: block;
+    line-height: 1;
   }
 
   .gauge {

@@ -3,6 +3,7 @@
   import Intro from './intro.svelte'
   import Skills from './skills.svelte'
   import Experience from './experience.svelte'
+  import Schedule from './schedule.svelte'
 
   let { data } = $props()
 </script>
@@ -21,4 +22,8 @@
 
 <section>
   <Experience jobs={data.jobs} />
+</section>
+
+<section>
+  <Schedule />
 </section>
