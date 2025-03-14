@@ -1,14 +1,16 @@
 services:
-  psicoenlace:
+  rigoli.dev:
     container_name: rigoli.dev
     image: rigoli.dev
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
-    restart: unless-stopped
+      args:
+        PORT: ${PROXY_VIRTUAL_PORT}
     environment:
-      - VIRTUAL_HOST=${PROXY_VIRTUAL_HOST}
-      - VIRTUAL_PORT=${PROXY_VIRTUAL_PORT}
+      VIRTUAL_HOST: ${PROXY_VIRTUAL_HOST}
+      VIRTUAL_PORT: ${PROXY_VIRTUAL_PORT}
 networks:
   default:
     external: true
