@@ -4,15 +4,29 @@
 
 $base-rem-px: 16px;
 
+@view-transition {
+  navigation: auto;
+}
+
 html,
 body {
   color-scheme: light dark;
   min-height: 100dvh;
   background: var(--ui-global-bg);
+  color: var(--ui-global-text);
 }
 
-@view-transition {
-  navigation: auto;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
 }
 
 body {

@@ -17,5 +17,6 @@
     max-width: var(--ui-page-max-width);
     width: 100%;
     margin-inline: auto;
+    box-sizing: border-box;
   }
 </style>

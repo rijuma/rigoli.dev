@@ -1,38 +1,24 @@
 @use '_preprocess/index' as *;
 
+@use './tokens-light.scss';
+@use './tokens-dark.scss';
+
+// Here we put the common tokens, shared with light and dark.
 :root {
-  --ui-alt-mix: #fff;
-
-  --ui-accent-color: #{$cyan-40};
-  --ui-accent-color-high: color-mix(in hsl, var(--ui-link-fg), var(--ui-alt-mix) 40%);
-
-  --ui-link-fg: var(--ui-accent-color);
-  --ui-link-fg-hover: var(--ui-accent-color-high);
-
-  --ui-page-inline-padding: 1rem;
-  --ui-page-block-padding: 0.5rem;
+  // Layout
   --ui-page-max-width: 80ch;
 
-  --ui-transition-duration: 0.25s;
-
-  --ui-dark-text: #{$barely-black};
-  --ui-light-text: #{$barely-white};
-  --ui-lighter-text: #{$almost-white};
-
-  --ui-dark-primary-text: #{$vermilion-90};
-  --ui-light-primary-text: #{$vermilion-10};
-  --ui-lighter-primary-text: #{$vermilion-05};
+  --ui-padding-viewport: 1rem;
+  --ui-page-inline-padding: 1rem;
+  --ui-page-block-padding: 6rem;
 
   // Timings
   --ui-animation-time: 0.25s;
 
-  // Globals
-  --ui-global-bg: #{$slate-50};
-  --ui-global-text: #{$white};
+  //Typography
   --ui-base-font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --ui-padding-viewport: 1rem;
 
   // z-indexes
   --ui-z-header: 10;
@@ -43,4 +29,14 @@
     --ui-page-inline-padding: 3rem;
     --ui-page-block-padding: 1rem;
   }
+}
+
+// Light mode
+:root[data-theme='light'] {
+  @extend %tokens-light;
+}
+
+// Dark mode
+:root[data-theme='dark'] {
+  @extend %tokens-dark;
 }

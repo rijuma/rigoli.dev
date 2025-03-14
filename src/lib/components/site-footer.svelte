@@ -13,6 +13,6 @@
   footer {
     font-size: 0.6rem;
     text-align: center;
-    padding: 0.2rem 0.4rem;
+    padding: 1rem;
   }
 </style>

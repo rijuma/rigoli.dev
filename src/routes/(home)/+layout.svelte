@@ -12,9 +12,10 @@
 <style lang="scss">
   main {
     flex-grow: 1;
-    padding: 2rem var(--ui-page-inline-padding) var(--ui-page-block-padding);
+    padding: var(--ui-page-block-padding) var(--ui-page-inline-padding);
     max-width: var(--ui-page-max-width);
     width: 100%;
+    box-sizing: border-box;
     margin-inline: auto;
 
     > :global(section) {

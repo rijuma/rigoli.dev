@@ -1,0 +1,23 @@
+@use '_preprocess/index' as *;
+
+// Here we put the light tokens only, there should be matching tokens for dark.
+// Only colors should be set here.
+%tokens-dark {
+  color-scheme: dark;
+
+  // Globals
+  --ui-global-bg: #{$slate-70};
+  --ui-global-text: #{$barely-white};
+
+  --ui-alt-mix: #fff;
+
+  --ui-accent-color: #{$cyan-40};
+  --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 40%);
+
+  --ui-link-fg: var(--ui-accent-color);
+  --ui-link-fg-hover: var(--ui-accent-color-high);
+
+  --ui-dark-primary-text: #{$vermilion-90};
+  --ui-light-primary-text: #{$vermilion-10};
+  --ui-lighter-primary-text: #{$vermilion-05};
+}
