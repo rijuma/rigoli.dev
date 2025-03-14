@@ -65,7 +65,7 @@
     {/each}
   </div>
   <div class="toggle" class:expanded>
-    <button class="button outline" onclick={toggle}>
+    <button class="button small" onclick={toggle}>
       {#if !expanded}
         See older jobs
       {:else}

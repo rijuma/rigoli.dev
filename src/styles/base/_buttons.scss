@@ -1,4 +1,6 @@
 button {
+  --bg-color: var(--ui-button-bg);
+  --text-color: var(--ui-button-text);
   all: revert;
   background: transparent;
   border: 0;
@@ -20,7 +22,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: 1ch;
-  padding: 0.8em 1em;
+  padding: 0.6em 0.8em;
   line-height: 1.4;
   text-align: center;
   color: var(--text-color);
@@ -32,8 +34,8 @@ button {
 
 .button {
   &:hover {
-    color: color-mix(in hsl, var(--text-color), var(--hover-mix) 10%);
-    background: color-mix(in hsl, var(--bg-color), var(--hover-mix) 10%);
+    color: color-mix(in hsl, var(--text-color), var(--ui-alt-mix) 10%);
+    background: color-mix(in hsl, var(--bg-color), var(--ui-alt-mix) 10%);
   }
 
   &.icon {
@@ -74,8 +76,7 @@ button {
   }
 
   &.small {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.6em;
+    font-size: 0.8em;
   }
 
   &.block {
@@ -90,7 +91,7 @@ button {
 
     &:hover {
       background: transparent;
-      border-color: color-mix(in hsl, var(--bg-color), var(--hover-mix) 10%);
+      border-color: color-mix(in hsl, var(--bg-color), var(--ui-alt-mix) 10%);
     }
   }
 

@@ -7,7 +7,9 @@
 
 <Navigation />
 <main class="markdown">
-  {@render children()}
+  <div class="container-md">
+    {@render children()}
+  </div>
 </main>
 
 <style lang="scss">

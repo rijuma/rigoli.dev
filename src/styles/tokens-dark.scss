@@ -14,6 +14,11 @@
   --ui-accent-color: #{$cyan-40};
   --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 40%);
 
+  // Buttons
+  --ui-button-bg: #{$cyan-50};
+  --ui-button-text: #{$barely-black};
+
+  // Links
   --ui-link-fg: var(--ui-accent-color);
   --ui-link-fg-hover: var(--ui-accent-color-high);
 

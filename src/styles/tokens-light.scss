@@ -6,18 +6,21 @@
   color-scheme: light;
 
   // Globals
-  --ui-global-bg: #{$neutral-30};
+  --ui-global-bg: #{$stone-20};
   --ui-global-text: #{$barely-black};
 
-  --ui-alt-mix: #{$yellow-95};
+  --ui-alt-mix: #{$sky-95};
 
-  --ui-accent-color: #{$yellow-80};
+  --ui-accent-color: #{$sky-80};
   --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 40%);
 
+  // Buttons
+  --ui-button-bg: #{$sky-90};
+  --ui-button-text: #{$white};
+
+  // Links
   --ui-link-fg: var(--ui-accent-color);
   --ui-link-fg-hover: var(--ui-accent-color-high);
-
-  --ui-text: #{$barely-black};
 
   --ui-dark-primary-text: #{$vermilion-90};
   --ui-light-primary-text: #{$vermilion-10};
