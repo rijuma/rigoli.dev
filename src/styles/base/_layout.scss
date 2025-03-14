@@ -4,10 +4,6 @@
 
 $base-rem-px: 16px;
 
-@view-transition {
-  navigation: auto;
-}
-
 html,
 body {
   color-scheme: light dark;
@@ -21,6 +17,11 @@ body {
 *::after {
   box-sizing: border-box;
   background-repeat: no-repeat;
+}
+
+*:focus-visible {
+  outline-style: dashed;
+  box-shadow: 0 0 1px 3px white;
 }
 
 ::before,

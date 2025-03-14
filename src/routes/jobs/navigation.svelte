@@ -43,7 +43,6 @@
   .frame {
     display: flex;
     justify-content: space-between;
-    max-width: var(--ui-page-max-width);
     width: 100%;
     margin-inline: auto;
     padding: 0.5rem var(--ui-page-inline-padding);

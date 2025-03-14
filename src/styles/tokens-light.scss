@@ -6,12 +6,12 @@
   color-scheme: light;
 
   // Globals
-  --ui-global-bg: #{$neutral-05};
+  --ui-global-bg: #{$neutral-30};
   --ui-global-text: #{$barely-black};
 
-  --ui-alt-mix: #000;
+  --ui-alt-mix: #{$yellow-95};
 
-  --ui-accent-color: #{$blue-80};
+  --ui-accent-color: #{$yellow-80};
   --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 40%);
 
   --ui-link-fg: var(--ui-accent-color);

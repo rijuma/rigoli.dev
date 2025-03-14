@@ -1,6 +1,6 @@
 @use 'sass:meta';
 
-@layer normalize, tokens, base, components, utilities;
+@layer normalize, tokens, base, utilities;
 
 @layer normalize {
   @include meta.load-css('normalize.css/normalize');
@@ -16,4 +16,8 @@
 
 @layer utilities {
   @include meta.load-css('./utilities/index');
+}
+
+@view-transition {
+  navigation: auto;
 }

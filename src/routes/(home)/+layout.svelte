@@ -13,7 +13,6 @@
   main {
     flex-grow: 1;
     padding: var(--ui-page-block-padding) var(--ui-page-inline-padding);
-    max-width: var(--ui-page-max-width);
     width: 100%;
     box-sizing: border-box;
     margin-inline: auto;

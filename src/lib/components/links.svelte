@@ -58,7 +58,7 @@
   {#if github.hireable}
     <li>
       <a class="link block" href={CALENDLY_LINK} target="_blank" rel="external nofollow">
-        <em style="view-transition-name: links-resume-icon;">
+        <em style="view-transition-name: links-schedule-icon;">
           <CalendarClock />
         </em>
         {#if !compact}

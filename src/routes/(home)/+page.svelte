@@ -9,23 +9,33 @@
 </script>
 
 <header>
-  <MainHero />
+  <div class="container-md">
+    <MainHero />
+  </div>
 </header>
 
 <section>
-  <Intro />
+  <div class="container-md">
+    <Intro />
+  </div>
 </section>
 
 <section>
-  <Skills />
+  <div class="container-md">
+    <Skills />
+  </div>
 </section>
 
 <section>
-  <Experience jobs={data.jobs} />
+  <div class="container-md">
+    <Experience jobs={data.jobs} />
+  </div>
 </section>
 
 {#if data.github.hireable}
   <section>
-    <Schedule />
+    <div class="container-md">
+      <Schedule />
+    </div>
   </section>
 {/if}
