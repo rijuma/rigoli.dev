@@ -1,6 +1,4 @@
 button {
-  --bg-color: var(--ui-button-bg);
-  --text-color: var(--ui-button-text);
   all: revert;
   background: transparent;
   border: 0;
@@ -33,9 +31,12 @@ button {
 }
 
 .button {
+  --bg-color: var(--ui-button-bg);
+  --text-color: var(--ui-button-text);
+
   &:hover {
-    color: color-mix(in hsl, var(--text-color), var(--ui-alt-mix) 10%);
-    background: color-mix(in hsl, var(--bg-color), var(--ui-alt-mix) 10%);
+    // color: color-mix(in hsl, var(--text-color), var(--ui-alt-mix) 10%);
+    background: color-mix(in hsl, var(--bg-color), var(--ui-alt-mix) 30%);
   }
 
   &.icon {

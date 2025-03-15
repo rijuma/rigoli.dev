@@ -9,13 +9,21 @@
   --ui-global-bg: #{$stone-20};
   --ui-global-text: #{$barely-black};
 
+  --ui-section-alt-bg: #{$stone-30};
+  --ui-section-special-bg: #{$vermilion-80};
+
   --ui-alt-mix: #{$sky-95};
 
+  // Focus outline
+  --ui-outline-line: #{$white};
+  --ui-outline: #{$black};
+
+  // Accent
   --ui-accent-color: #{$sky-80};
-  --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 40%);
+  --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 60%);
 
   // Buttons
-  --ui-button-bg: #{$sky-90};
+  --ui-button-bg: #{$sky-70};
   --ui-button-text: #{$white};
 
   // Links

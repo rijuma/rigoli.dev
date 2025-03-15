@@ -11,15 +11,14 @@
 
 <style lang="scss">
   main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-page-section-gap);
     flex-grow: 1;
-    padding: var(--ui-page-block-padding) var(--ui-page-inline-padding);
+    padding-block: var(--ui-page-block-padding);
     width: 100%;
     box-sizing: border-box;
     margin-inline: auto;
-
-    > :global(section) {
-      margin-block-end: 6rem;
-    }
   }
 
   @include bp(md) {

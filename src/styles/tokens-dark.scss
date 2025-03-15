@@ -9,14 +9,22 @@
   --ui-global-bg: #{$slate-70};
   --ui-global-text: #{$barely-white};
 
+  --ui-section-alt-bg: #{$stone-80};
+  --ui-section-special-bg: #{$vermilion-80};
+
   --ui-alt-mix: #fff;
 
+  // Focus outline
+  --ui-outline-line: #{$white};
+  --ui-outline: #{$black};
+
+  // Accent
   --ui-accent-color: #{$cyan-40};
   --ui-accent-color-high: color-mix(in hsl, var(--ui-accent-color), var(--ui-alt-mix) 40%);
 
   // Buttons
   --ui-button-bg: #{$cyan-50};
-  --ui-button-text: #{$barely-black};
+  --ui-button-text: #{$black};
 
   // Links
   --ui-link-fg: var(--ui-accent-color);

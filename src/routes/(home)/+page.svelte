@@ -8,19 +8,16 @@
   let { data } = $props()
 </script>
 
-<header>
-  <div class="container-md">
+<div class="container-md">
+  <header>
     <MainHero />
-  </div>
-</header>
-
-<section>
-  <div class="container-md">
+  </header>
+  <section>
     <Intro />
-  </div>
-</section>
+  </section>
+</div>
 
-<section>
+<section class="skills">
   <div class="container-md">
     <Skills />
   </div>
@@ -33,9 +30,27 @@
 </section>
 
 {#if data.github.hireable}
-  <section>
+  <section class="schedule">
     <div class="container-md">
       <Schedule />
     </div>
   </section>
 {/if}
+
+<style lang="scss">
+  .skills {
+    --spacing: calc(var(--ui-page-section-gap) / 2);
+    padding-block: var(--spacing);
+    margin-block: calc(var(--spacing) * -1);
+    border-block: 1px solid var(--ui-global-text);
+    background: var(--ui-section-alt-bg);
+  }
+
+  .schedule {
+    --spacing: calc(var(--ui-page-section-gap) / 2);
+    padding-block: var(--spacing);
+    margin-block-start: calc(var(--spacing) * -1);
+    border-block: 1px solid var(--ui-global-text);
+    background: var(--ui-section-alt-bg);
+  }
+</style>

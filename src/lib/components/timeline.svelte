@@ -1,5 +1,6 @@
 <script lang="ts">
   import { transition } from '$lib/utils'
+  import { ChevronDown, ChevronUp } from '@lucide/svelte'
 
   import type { TimelineEntry } from '$lib/types'
 
@@ -17,17 +18,16 @@
 
   let expanded = $state(false)
 
-  const filteredData = $derived(expanded ? data : data.slice(0, 3))
+  const filteredData = $derived(expanded ? data : data.slice(0, 2))
 
   const toggle = () => transition(() => (expanded = !expanded))
 </script>
 
 <div class="timeline">
   <div class="data">
-    {#each filteredData as { name, slug, pic, from, to, role, tech, intro }, index}
-      {@const reduced = !expanded && index === filteredData.length - 1}
+    {#each filteredData as { name, slug, pic, from, to, role, tech, intro }}
       <div class="event">
-        <a href={`/jobs/${slug}`} class="info" class:reduced>
+        <a href={`/jobs/${slug}`} class="info">
           <div class="dates">
             <div class="from">{formatDate(from)}</div>
             <div class="to">
@@ -54,11 +54,9 @@
                 {/each}
               </ul>
             </div>
-            {#if !reduced}
-              {#each intro as row}
-                <p>{row}</p>
-              {/each}
-            {/if}
+            {#each intro as row}
+              <p>{row}</p>
+            {/each}
           </div>
         </a>
       </div>
@@ -67,9 +65,9 @@
   <div class="toggle" class:expanded>
     <button class="button small" onclick={toggle}>
       {#if !expanded}
-        See older jobs
+        <ChevronDown /> See older jobs <ChevronDown />
       {:else}
-        Hide older jobs
+        <ChevronUp /> Hide older jobs <ChevronUp />
       {/if}
     </button>
   </div>
@@ -120,7 +118,7 @@
 
     position: relative;
     margin: calc(var(--path-width) * -1);
-    padding: var(--outer-padding);
+    padding: var(--outer-padding) var(--outer-padding) calc(var(--outer-padding) * 4);
 
     // Timeline outline path
     &::before {
@@ -135,7 +133,7 @@
       // C-like form for the timeline path
       &::before {
         border-right: 0;
-        border-radius: var(--line-radius) 0 0 var(--line-radius);
+        border-radius: var(--line-radius) 0 0 calc(var(--line-radius) * 4);
         right: 50%;
       }
 
@@ -159,7 +157,7 @@
       // Inverted C-like form for the timeline path
       &::before {
         border-left: 0;
-        border-radius: 0 var(--line-radius) var(--line-radius) 0;
+        border-radius: 0 var(--line-radius) calc(var(--line-radius) * 4) 0;
         left: 50%;
       }
 
@@ -228,10 +226,6 @@
     user-select: none;
 
     * {
-      pointer-events: none;
-    }
-
-    &.reduced {
       pointer-events: none;
     }
 

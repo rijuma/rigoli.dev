@@ -21,7 +21,8 @@ body {
 
 *:focus-visible {
   outline-style: dashed;
-  box-shadow: 0 0 1px 3px white;
+  outline-color: var(--ui-outline-line);
+  box-shadow: 0 0 1px 3px var(--ui-outline) !important;
 }
 
 ::before,
