@@ -21,9 +21,7 @@
       rel="external nofollow"
       aria-label="Marcos' Linkedin profile"
     >
-      <em style="view-transition-name: links-linkedin-icon;">
-        <LinkedinIcon />
-      </em>
+      <LinkedinIcon />
       {#if !compact}
         <div class="label">linkedin <ExternalLink /></div>
       {/if}
@@ -37,9 +35,7 @@
       rel="external nofollow"
       aria-label="Marcos' Github profile"
     >
-      <em style="view-transition-name: links-github-icon;">
-        <GithubIcon />
-      </em>
+      <GithubIcon />
       {#if !compact}
         <div class="label">github <ExternalLink /></div>
       {/if}
@@ -47,9 +43,7 @@
   </li>
   <li>
     <a class="link block" href={RESUME_URL} target="_blank" rel="external nofollow">
-      <em style="view-transition-name: links-resume-icon;">
-        <FileText />
-      </em>
+      <FileText />
       {#if !compact}
         <div class="label">Resume <ExternalLink /></div>
       {/if}
@@ -58,9 +52,7 @@
   {#if github.hireable}
     <li>
       <a class="link block" href={CALENDLY_LINK} target="_blank" rel="external nofollow">
-        <em style="view-transition-name: links-schedule-icon;">
-          <CalendarClock />
-        </em>
+        <CalendarClock />
         {#if !compact}
           <div class="label">Schedule <ExternalLink /></div>
         {/if}
@@ -88,10 +80,6 @@
       font-size: 0.8em;
       margin-left: 0.5ch;
     }
-  }
-
-  em {
-    display: block;
   }
 
   .link .label {

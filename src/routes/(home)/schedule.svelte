@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { CalendarClock } from '@lucide/svelte'
   import { CALENDLY_LINK } from '$lib/const'
   import { SpecialButton } from '$lib/components'

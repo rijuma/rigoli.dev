@@ -1,9 +1,23 @@
 <script lang="ts">
+  import { inview, type Options } from 'svelte-inview'
   import { Avatar, Links, NameTag, ThemeSwitcher } from '$lib/components'
   import { GITHUB_TAG, NAME } from '$lib/const'
+
+  type Props = {
+    onVisibilityChange?: (visible: boolean) => {}
+  }
+  let { onVisibilityChange }: Props = $props()
+
+  const options: Options = {
+    rootMargin: '0px',
+  }
 </script>
 
-<div class="heading">
+<div
+  class="heading"
+  use:inview={options}
+  oninview_change={(event) => onVisibilityChange?.(event.detail.inView)}
+>
   <Avatar />
   <div class="info">
     <NameTag name={NAME} tag={GITHUB_TAG} />

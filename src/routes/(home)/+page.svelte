@@ -4,13 +4,20 @@
   import Skills from './skills.svelte'
   import Experience from './experience.svelte'
   import Schedule from './schedule.svelte'
+  import Navigation from './navigation.svelte'
 
   let { data } = $props()
+
+  let showTopNav = $state(false)
+
+  const handleHeroVisibilityChange = (visible: boolean) => (showTopNav = !visible)
 </script>
+
+<Navigation visible={showTopNav} />
 
 <div class="container-md">
   <header>
-    <MainHero />
+    <MainHero onVisibilityChange={handleHeroVisibilityChange} />
   </header>
   <section>
     <Intro />

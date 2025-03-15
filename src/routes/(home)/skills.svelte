@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { SkillBar } from '$lib/components'
 </script>
 

@@ -1,49 +1,10 @@
-<script>
-  import { browser } from '$app/environment'
-  import { Links, NameTag, ThemeSwitcher } from '$lib/components'
-  import { GITHUB_TAG, NAME } from '$lib/const'
+<script lang="ts">
+  import { TopNavigation } from '$lib/components'
+  import StickyHeader from '$lib/components/sticky-header.svelte'
 
-  const isStuck = () => (browser ? window.scrollY > 0 : false)
-
-  let stuck = $state(isStuck())
-
-  const handleScroll = () => (stuck = isStuck())
+  let stuck = $state(false)
 </script>
 
-<svelte:window onscroll={handleScroll} />
-
-<div class="navigation" class:stuck>
-  <div class="frame container-md">
-    <a href="/" class="home"><NameTag name={NAME} tag={GITHUB_TAG} /></a>
-
-    <Links compact />
-
-    <ThemeSwitcher />
-  </div>
-</div>
-
-<style lang="scss">
-  .navigation {
-    position: sticky;
-    top: 0;
-    background: color-mix(in oklab, var(--ui-global-bg), transparent 30%);
-    transform: box-shadow var(--ui-transition-duration) ease;
-    z-index: var(--ui-z-header);
-    backdrop-filter: blur(10px);
-
-    &.stuck {
-      box-shadow: 0 0 5px 5px #0005;
-    }
-  }
-
-  .home {
-    color: currentColor;
-    cursor: pointer !important;
-  }
-
-  .frame {
-    display: flex;
-    justify-content: space-between;
-    padding-block: 0.6rem;
-  }
-</style>
+<StickyHeader bind:stuck>
+  <TopNavigation shadow={stuck} />
+</StickyHeader>
