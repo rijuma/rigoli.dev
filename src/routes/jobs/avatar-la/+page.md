@@ -1,6 +1,6 @@
 ---
 name: 'Avatar LA'
-href: '/jobs/avatar-la'
+slug: 'avatar-la'
 pic: '/img/companies/avatar-la.svg'
 from: [2015, 7]
 to: [2017, 4]

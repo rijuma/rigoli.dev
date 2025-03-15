@@ -1,6 +1,7 @@
 <script lang="ts">
   import { transition } from '$lib/utils'
   import { ChevronDown, ChevronUp } from '@lucide/svelte'
+  import { expanded } from '$lib/stores'
 
   import type { TimelineEntry } from '$lib/types'
 
@@ -16,11 +17,9 @@
     return `${month} ${year}`
   }
 
-  let expanded = $state(false)
+  const filteredData = $derived(expanded.value ? data : data.slice(0, 2))
 
-  const filteredData = $derived(expanded ? data : data.slice(0, 2))
-
-  const toggle = () => transition(() => (expanded = !expanded))
+  const toggle = () => transition(() => (expanded.value = !expanded.value))
 </script>
 
 <div class="timeline">
@@ -37,23 +36,20 @@
                 Still here!
               {/if}
             </div>
-          </div>
-          <div class="logo">
-            <img src={pic} alt={name} />
+            <div class="logo">
+              <img src={pic} alt={name} />
+            </div>
           </div>
           <div class="details">
             <h3>{name}</h3>
             <div class="position">
               {role}
             </div>
-            <div class="stack">
-              <div>Stack:</div>
-              <ul class="tech">
-                {#each tech as t}
-                  <li>{t}</li>
-                {/each}
-              </ul>
-            </div>
+            <ul class="tech">
+              {#each tech as t}
+                <li>{t}</li>
+              {/each}
+            </ul>
             {#each intro as row}
               <p>{row}</p>
             {/each}
@@ -151,6 +147,10 @@
           transform: translate(0, -50%);
         }
       }
+
+      .dates {
+        flex-direction: row;
+      }
     }
 
     &:nth-child(even) {
@@ -162,7 +162,6 @@
       }
 
       .info {
-        flex-direction: row-reverse;
         // Right pin positions
         &::before,
         &::after {
@@ -178,7 +177,7 @@
       }
 
       .dates {
-        justify-content: flex-end;
+        flex-direction: row-reverse;
       }
     }
 
@@ -214,15 +213,14 @@
   // Inner block
   .info {
     --pin-color: var(--path-color);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     position: relative;
     line-height: 1.5;
     background: var(--block-color);
     border-radius: var(--inner-radius);
     color: currentColor;
-    grid-template:
-      'dates dates' auto
-      'logo details' auto / auto 1fr;
+
     user-select: none;
 
     * {
@@ -276,13 +274,10 @@
   }
 
   .dates {
-    grid-area: dates;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
     gap: 1rem;
-    padding: 0.6rem;
+    align-items: baseline;
+    padding: 0.6rem 1rem;
     text-transform: capitalize;
   }
 
@@ -305,24 +300,19 @@
     color: currentColor;
     gap: 0.5rem;
     flex-wrap: wrap;
+    font-size: 0.6rem;
 
     li {
       border: 1px solid var(--path-color);
-      padding: 0.1rem 0.2rem;
+      padding: 0.05rem 0.25rem;
       border-radius: 0.4rem;
       font-family: monospace;
+      margin-block-end: 1rem;
     }
   }
 
-  .stack {
-    margin-block-end: 0.5rem;
-    font-size: 0.75em;
-    display: flex;
-    gap: 0.5rem;
-  }
-
   .logo {
-    grid-area: logo;
+    display: none;
     text-align: center;
     padding: 1rem;
     background: var(--details-background);
@@ -342,10 +332,10 @@
   }
 
   .details {
-    grid-area: details;
     flex-grow: 1;
-    padding-inline-end: 1rem;
+    padding-inline: 1rem;
     background: var(--details-background);
+    border-end-start-radius: var(--inner-radius);
     border-end-end-radius: var(--inner-radius);
   }
 
@@ -369,9 +359,7 @@
 
       &:nth-child(odd) {
         .info {
-          grid-template:
-            'dates details' auto
-            'logo details' auto / auto 1fr;
+          flex-direction: row;
         }
 
         .details {
@@ -381,9 +369,7 @@
 
       &:nth-child(even) {
         .info {
-          grid-template:
-            'details dates' auto
-            'details logo' auto / 1fr auto;
+          flex-direction: row-reverse;
         }
 
         .details {
@@ -393,11 +379,13 @@
     }
 
     .logo {
+      display: block;
       background: none;
     }
 
     .dates {
-      flex-direction: column;
+      flex-direction: column !important;
+      align-items: center;
       gap: 0;
       padding-block: 0;
     }

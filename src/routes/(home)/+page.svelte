@@ -71,4 +71,8 @@
   .schedule {
     margin-block-start: calc(var(--spacing) * -1);
   }
+
+  * :global(h2) {
+    text-align: center;
+  }
 </style>
