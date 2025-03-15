@@ -16,7 +16,7 @@
     text-transform: uppercase;
     border: none;
     letter-spacing: 0.1rem;
-    font-size: 1.5em;
+    font-size: 1.25em;
     transition: 0.2s;
     border-radius: 0.5em;
 

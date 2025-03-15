@@ -41,15 +41,17 @@
             </div>
           </div>
           <div class="details">
-            <h3>{name}</h3>
-            <div class="position">
-              {role}
+            <div class="heading">
+              <h3>{name}</h3>
+              <div class="position">
+                {role}
+              </div>
+              <ul class="tech">
+                {#each tech as t}
+                  <li>{t}</li>
+                {/each}
+              </ul>
             </div>
-            <ul class="tech">
-              {#each tech as t}
-                <li>{t}</li>
-              {/each}
-            </ul>
             {#each intro as row}
               <p>{row}</p>
             {/each}
@@ -58,9 +60,9 @@
       </div>
     {/each}
   </div>
-  <div class="toggle" class:expanded>
+  <div class="toggle" class:expanded={expanded.value}>
     <button class="button small" onclick={toggle}>
-      {#if !expanded}
+      {#if !expanded.value}
         <ChevronDown /> See older jobs <ChevronDown />
       {:else}
         <ChevronUp /> Hide older jobs <ChevronUp />
@@ -339,6 +341,10 @@
     border-end-end-radius: var(--inner-radius);
   }
 
+  .heading {
+    text-align: center;
+  }
+
   h3 {
     font-size: var(--title-size);
     line-height: 1.5;
@@ -393,6 +399,10 @@
     .details {
       border-radius: var(--inner-radius) 0 0 var(--inner-radius);
       padding-inline: 1rem;
+    }
+
+    .heading {
+      text-align: left;
     }
   }
 </style>
