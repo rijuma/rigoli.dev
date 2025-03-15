@@ -43,19 +43,19 @@ body {
   &-lg {
     margin: auto;
     max-width: math.div(map.get(bp.$bps, 'lg'), $base-rem-px) * 1rem;
-    padding-inline: 0.5rem;
+    padding-inline: var(--ui-padding-viewport);
   }
 
   &-md {
     margin: auto;
     max-width: math.div(map.get(bp.$bps, 'md'), $base-rem-px) * 1rem;
-    padding-inline: 0.5rem;
+    padding-inline: var(--ui-padding-viewport);
   }
 
   &-sm {
     margin: auto;
     max-width: math.div(map.get(bp.$bps, 'sm'), $base-rem-px) * 1rem;
-    padding-inline: 0.5rem;
+    padding-inline: var(--ui-padding-viewport);
   }
 }
 

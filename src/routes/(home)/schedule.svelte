@@ -4,7 +4,7 @@
   import { SpecialButton } from '$lib/components'
 </script>
 
-<h2>Let's work together</h2>
+<h2>Let's work together!</h2>
 
 <div class="cta">
   <SpecialButton href={CALENDLY_LINK} target="_blank" rel="external nofollow"

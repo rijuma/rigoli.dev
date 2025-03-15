@@ -61,6 +61,7 @@
     height: 0.5rem;
     overflow: hidden;
     box-shadow: 0 0 1px 1px var(--ui-accent-color-high);
+    background: var(--ui-global-bg);
 
     &:before {
       --percent: calc((100% - var(--value) / var(--max, 1) * 100%));
