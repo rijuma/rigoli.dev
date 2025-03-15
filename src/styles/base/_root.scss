@@ -4,8 +4,11 @@
 $base-text-size: 16; // 16px
 
 :root {
-  --root-font-size: 100%; // 16px
+  // --root-font-size: 100%; // 16px
 
+  --root-font-size: #{math.div(17, $base-text-size) * 1rem};
+
+  /*
   // REM scaling - Using Pico.css as reference.
   @include bp(sm) {
     --root-font-size: #{math.div(17, $base-text-size) * 1rem};
@@ -18,6 +21,7 @@ $base-text-size: 16; // 16px
   @include bp(lg) {
     --root-font-size: #{math.div(19, $base-text-size) * 1rem}; // 19px
   }
+  */
 
   @include bp(xl) {
     --root-font-size: #{math.div(20, $base-text-size) * 1rem}; // 20px

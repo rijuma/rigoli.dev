@@ -14,7 +14,9 @@
 
     <Links compact />
 
-    <ThemeSwitcher />
+    <div class="theme-switcher">
+      <ThemeSwitcher />
+    </div>
   </div>
 </div>
 
@@ -36,7 +38,12 @@
 
   .frame {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
     padding-block: 0.6rem;
+  }
+
+  .theme-switcher {
+    margin-inline-start: auto;
   }
 </style>
