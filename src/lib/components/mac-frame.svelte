@@ -23,6 +23,7 @@
   .mac-frame {
     display: inline-block;
     position: relative;
+    margin-block-end: 1rem;
 
     &.shadow-bottom .content {
       position: relative;
@@ -38,9 +39,11 @@
   }
 
   .header {
+    display: flex;
+    gap: 0.3rem;
     background: #b4b4b4;
     opacity: 0.9;
-    padding: 10px;
+    padding: 0.4rem;
     border-radius: 7px 7px 0px 0px;
     background: linear-gradient(to bottom, #f6f6f6 0%, #dadada 100%); /* W3C */
     border: 1px solid #d8d8d8;
@@ -49,17 +52,16 @@
 
   .content {
     border: 1px solid #d8d8d8;
-    border-inline-start: 0;
+    border-inline-end: 1px solid #b4b4b4;
     background: #fff;
   }
 
   .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
     background: #f9f9f9;
-    border-radius: 50%;
-    margin: 0 4px 0 0;
+    border-radius: 99rem;
 
     &.red {
       background: #ff6057;

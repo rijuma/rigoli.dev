@@ -242,10 +242,6 @@
       &::after {
         --pin-color: var(--ui-accent-color);
       }
-
-      h3 {
-        color: var(--ui-link-fg-hover);
-      }
     }
 
     // Glowing pin on hovering
@@ -349,7 +345,7 @@
     font-size: var(--title-size);
     line-height: 1.5;
     margin-block-end: 0;
-    color: var(--ui-link-fg);
+    color: currentColor;
   }
 
   p {

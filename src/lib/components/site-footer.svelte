@@ -1,12 +1,13 @@
 <script lang="ts">
   import { APP_REPO } from '$lib/const'
+  import { ExternalLink } from '@lucide/svelte'
 
   const year = new Date().getFullYear()
 </script>
 
 <footer class="footer">
   &copy; {year} Marcos Rigoli &middot; Like the site?
-  <a href={APP_REPO} target="_blank" rel="external nofollow">Check the repo</a>!
+  <a href={APP_REPO} target="_blank" rel="external nofollow">Check the repo <ExternalLink /></a>
 </footer>
 
 <style lang="scss">
@@ -14,5 +15,10 @@
     font-size: 0.6rem;
     text-align: center;
     padding: 0.5rem 1rem;
+  }
+
+  a {
+    display: inline-flex;
+    gap: 0.5ch;
   }
 </style>

@@ -1,0 +1,16 @@
+.markdown {
+  ul {
+    margin-left: 1rem;
+    margin-block-end: 1rem;
+    line-height: 1.5;
+  }
+
+  li {
+    list-style: disc;
+    margin-block: 0.2rem;
+
+    li {
+      list-style: circle;
+    }
+  }
+}

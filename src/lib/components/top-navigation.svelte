@@ -11,9 +11,7 @@
 <div class="navigation" class:shadow>
   <div class="frame container-md">
     <a href="/" class="home"><NameTag name={NAME} tag={GITHUB_TAG} /></a>
-
     <Links compact />
-
     <div class="theme-switcher">
       <ThemeSwitcher />
     </div>
