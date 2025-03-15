@@ -1,6 +1,6 @@
 <script lang="ts">
   import { transition } from '$lib/utils'
-  import { ChevronDown, ChevronUp } from '@lucide/svelte'
+  import { ChevronDown, ChevronRight, ChevronUp } from '@lucide/svelte'
   import { expanded } from '$lib/stores'
 
   import type { TimelineEntry } from '$lib/types'
@@ -55,6 +55,7 @@
             {#each intro as row}
               <p>{row}</p>
             {/each}
+            <p class="more">... read more &raquo;</p>
           </div>
         </a>
       </div>
@@ -76,6 +77,12 @@
 
   .timeline {
     position: relative;
+  }
+
+  .more {
+    font-size: 0.8rem;
+
+    color: var(--ui-link-fg);
   }
 
   .toggle {
@@ -242,6 +249,10 @@
       &::after {
         --pin-color: var(--ui-accent-color);
       }
+
+      .more {
+        color: var(--ui-link-fg-hover);
+      }
     }
 
     // Glowing pin on hovering
@@ -277,6 +288,7 @@
     align-items: baseline;
     padding: 0.6rem 1rem;
     text-transform: capitalize;
+    white-space: nowrap;
   }
 
   .from {

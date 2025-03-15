@@ -13,4 +13,19 @@
       list-style: circle;
     }
   }
+
+  a {
+    text-decoration: underline;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-block-start: 3rem;
+  }
 }

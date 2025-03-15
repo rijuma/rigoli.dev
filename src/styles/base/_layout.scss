@@ -10,6 +10,7 @@ body {
   min-height: 100dvh;
   background: var(--ui-global-bg);
   color: var(--ui-global-text);
+  scroll-behavior: smooth;
 }
 
 *,
