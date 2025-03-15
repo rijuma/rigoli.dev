@@ -30,7 +30,6 @@
 <style lang="scss">
   .theme-switcher {
     display: block;
-    view-transition-name: theme-switcher;
   }
 
   .animate-sun,

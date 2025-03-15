@@ -39,7 +39,6 @@
     overflow: hidden;
     user-select: none;
     color: currentColor;
-    view-transition-name: nametag;
 
     span {
       --offset: calc(var(--index) / var(--count) * var(--duration));
