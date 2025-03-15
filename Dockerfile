@@ -15,7 +15,7 @@ WORKDIR /app
 COPY --chown=svelteuser:svelteuser . /app
 
 # Instal dependencies and build.
-RUN npm i && npm run build
+RUN npm install && npm run build
 
 # We are using multi stage build process to keep the image size as small as possible
 FROM node:23-alpine3.20
@@ -39,8 +39,8 @@ EXPOSE ${PORT}
 # Set app host and port and env as production.
 ENV HOST=0.0.0.0 PORT=${PORT} NODE_ENV=production
 
-# Install only dependencies (not devDependencies).
-RUN npm i --production
+# Install dependencies only (omitting devDependencies).
+RUN npm install --omit=dev
 
 # Start the app with dumb init to spawn the Node.js runtime process
 # with signal support.
