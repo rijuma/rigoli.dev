@@ -2,6 +2,7 @@ export * from './icons'
 
 export { default as Avatar } from './avatar.svelte'
 export { default as Links } from './links.svelte'
+export { default as MacFrame } from './mac-frame.svelte'
 export { default as NameTag } from './name-tag.svelte'
 export { default as SpecialButton } from './special-button.svelte'
 export { default as StickyHeader } from './sticky-header.svelte'

@@ -17,7 +17,7 @@ type JobEntry = Omit<TimelineEntry, 'from' | 'to'> & {
 const getJobsMetadata = async () => {
   if (jobsCache) return jobsCache
 
-  const metadata = await import.meta.glob('$lib/../routes/jobs/**/*.md', {
+  const metadata = await import.meta.glob('$lib/../routes/jobs/**/+page.mdx', {
     eager: true,
     import: 'metadata',
   })

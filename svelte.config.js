@@ -4,7 +4,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 /** @type {import('mdsvex').msdvexOptions} */
 const msdvexOptions = {
-  extensions: ['md'],
+  extensions: ['mdx'],
 }
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -19,7 +19,7 @@ const config = {
     },
   },
 
-  extensions: ['.svelte', '.md'],
+  extensions: ['.svelte', '.mdx'],
 }
 
 export default config
