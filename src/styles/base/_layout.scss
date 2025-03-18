@@ -37,25 +37,29 @@ body {
 }
 
 .container {
-  margin: auto;
+  width: 100%;
   max-width: math.div(map.get(bp.$bps, 'xl'), $base-rem-px) * 1rem;
+  margin: auto;
   padding-inline: var(--ui-padding-viewport);
 
   &-lg {
-    margin: auto;
+    width: 100%;
     max-width: math.div(map.get(bp.$bps, 'lg'), $base-rem-px) * 1rem;
+    margin: auto;
     padding-inline: var(--ui-padding-viewport);
   }
 
   &-md {
-    margin: auto;
+    width: 100%;
     max-width: math.div(map.get(bp.$bps, 'md'), $base-rem-px) * 1rem;
+    margin: auto;
     padding-inline: var(--ui-padding-viewport);
   }
 
   &-sm {
-    margin: auto;
+    width: 100%;
     max-width: math.div(map.get(bp.$bps, 'sm'), $base-rem-px) * 1rem;
+    margin: auto;
     padding-inline: var(--ui-padding-viewport);
   }
 }

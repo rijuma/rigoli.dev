@@ -1,9 +1,12 @@
 <script lang="ts">
   import '$lib/stores/color-mode.svelte' // Sets the color theme
   import PageViewTransitions from './page-view-transitions.svelte'
+  import Seo from '$lib/components/seo.svelte'
 
   let { children } = $props()
 </script>
+
+<Seo />
 
 <PageViewTransitions />
 

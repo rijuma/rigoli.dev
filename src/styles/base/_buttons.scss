@@ -101,7 +101,7 @@ button {
     margin: 0;
     border: 0;
     background: none;
-    display: inline;
+    display: inline-flex;
     color: var(--ui-link-fg);
 
     &:hover {

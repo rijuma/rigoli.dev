@@ -1,7 +1,8 @@
-import type { LayoutServerLoad } from './$types'
 import { getCachedGithubUserData, getGithubUserData } from '$lib/server/services'
 import { error } from '@sveltejs/kit'
+
 import type { TimelineEntry } from '$lib/types'
+import type { LayoutServerLoad } from './$types'
 
 // Dynamic endpoint
 export const prerender = false

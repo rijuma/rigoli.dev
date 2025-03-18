@@ -1,6 +1,7 @@
 <script lang="ts">
   import { transition } from '$lib/utils'
   import { Typewriter } from '$lib/components'
+  import { page } from '$app/state'
 
   let more = $state(false)
   let less = $state(false)
@@ -12,11 +13,12 @@
     })
 
   const showLessButton = () => transition(() => (less = true))
+
+  let github = $derived(page.data?.github)
 </script>
 
 <p>
-  Hi there! I'm Marcos. I'm an enthusiastic developer. I've been working as a full-stack developer
-  lately but frontend has a sweet spot in my heart.<br />
+  {github.bio}<br />
   {#if !more}
     <button class="button inline" type="button" onclick={toggle} aria-label="Read more about me"
       >...more &gt;</button
