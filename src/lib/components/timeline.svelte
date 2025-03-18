@@ -31,7 +31,7 @@
             <div class="from">{formatDate(from)}</div>
             <div class="to">
               {#if to}
-                until {formatDate(to)}
+                to {formatDate(to)}
               {:else}
                 Still here!
               {/if}
@@ -284,7 +284,8 @@
 
   .dates {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
     align-items: baseline;
     padding: 0.6rem 1rem;
     text-transform: capitalize;
@@ -292,12 +293,12 @@
   }
 
   .from {
-    font-size: var(--title-size);
+    font-size: calc(var(--title-size) * 0.8);
     font-weight: bold;
   }
 
   .to {
-    font-size: var(--text-size);
+    font-size: calc(var(--text-size) * 0.8);
   }
 
   .position {
@@ -402,6 +403,14 @@
       align-items: center;
       gap: 0;
       padding-block: 0;
+    }
+
+    .from {
+      font-size: var(--title-size);
+    }
+
+    .to {
+      font-size: var(--text-size);
     }
 
     .details {
