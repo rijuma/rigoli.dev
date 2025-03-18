@@ -7,6 +7,7 @@ const githubUserApiSchema = z
   .object({
     html_url: z.string().url(),
     avatar_url: z.string().url(),
+    bio: z.string(),
     hireable: z.boolean(),
   })
   .transform(({ html_url: profileUrl, avatar_url: avatarUrl, ...rest }) => ({

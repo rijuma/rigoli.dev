@@ -1,4 +1,8 @@
-export const NAME = 'Marcos Rigoli'
+export const FIRST_NAME = 'Marcos'
+
+export const LAST_NAME = 'Rigoli'
+
+export const NAME = `${FIRST_NAME} ${LAST_NAME}`
 
 export const GITHUB_TAG = 'rijuma'
 

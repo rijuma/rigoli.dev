@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { APP_REPO } from '$lib/const'
+  import { APP_REPO, NAME } from '$lib/const'
   import { ExternalLink } from '@lucide/svelte'
 
   const year = new Date().getFullYear()
 </script>
 
 <footer class="footer">
-  &copy; {year} Marcos Rigoli &middot; Like the site?
+  &copy; {year}
+  {NAME} &middot; Like the site?
   <a href={APP_REPO} target="_blank" rel="external nofollow">Check the repo <ExternalLink /></a>
 </footer>
 

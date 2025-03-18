@@ -7,6 +7,7 @@ export type GithubOrg = {
 
 export type GithubUser = {
   tag: string
+  bio: string
   avatarUrl: string
   profileUrl: string
   orgs: GithubOrg[]
