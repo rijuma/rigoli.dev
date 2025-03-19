@@ -3,7 +3,7 @@
   import Intro from './intro.svelte'
   import Skills from './skills.svelte'
   import Experience from './experience.svelte'
-  import Schedule from './schedule.svelte'
+  import Contact from './contact.svelte'
   import Navigation from './navigation.svelte'
 
   let { data } = $props()
@@ -36,13 +36,11 @@
   </div>
 </section>
 
-{#if data.github.hireable}
-  <section class="alt schedule">
-    <div class="container-md">
-      <Schedule />
-    </div>
-  </section>
-{/if}
+<section class="alt schedule">
+  <div class="container-md">
+    <Contact />
+  </div>
+</section>
 
 <style lang="scss">
   .alt {

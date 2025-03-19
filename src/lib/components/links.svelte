@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { CALENDLY_LINK, GITHUB_TAG, LINKEDIN_TAG, RESUME_URL } from '$lib/const'
-  import { FileText, ExternalLink, CalendarClock } from '@lucide/svelte'
+  import { CALENDLY_LINK, EMAIL, GITHUB_TAG, LINKEDIN_TAG, RESUME_URL } from '$lib/const'
+  import { FileText, ExternalLink, CalendarClock, AtSign } from '@lucide/svelte'
   import { LinkedinIcon, GithubIcon } from './icons'
   import { page } from '$app/state'
 
@@ -18,7 +18,7 @@
       class="link linkedin"
       href={`https://www.linkedin.com/in/${LINKEDIN_TAG}`}
       target="_blank"
-      rel="external nofollow"
+      rel="noopener"
       aria-label="Marcos' Linkedin profile"
     >
       <LinkedinIcon />
@@ -32,7 +32,7 @@
       class="link github"
       href={`https://github.com/${GITHUB_TAG}`}
       target="_blank"
-      rel="external nofollow"
+      rel="noopener"
       aria-label="Marcos' Github profile"
     >
       <GithubIcon />
@@ -42,7 +42,7 @@
     </a>
   </li>
   <li>
-    <a class="link block" href={RESUME_URL} target="_blank" rel="external nofollow">
+    <a class="link block" href={RESUME_URL} target="_blank" rel="noopener">
       <FileText />
       {#if !compact}
         <div class="label">Resume <ExternalLink /></div>
@@ -51,10 +51,19 @@
   </li>
   {#if github.hireable}
     <li>
-      <a class="link block" href={CALENDLY_LINK} target="_blank" rel="external nofollow">
+      <a class="link block" href={CALENDLY_LINK} target="_blank" rel="noopener">
         <CalendarClock />
         {#if !compact}
           <div class="label">Schedule <ExternalLink /></div>
+        {/if}
+      </a>
+    </li>
+  {:else}
+    <li>
+      <a class="link block" href={`mailto: ${EMAIL}`} target="_blank" rel="noopener">
+        <AtSign />
+        {#if !compact}
+          <div class="label">Email</div>
         {/if}
       </a>
     </li>

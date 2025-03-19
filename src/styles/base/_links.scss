@@ -1,4 +1,4 @@
-a:not([role='button']),
+a:not([role='button']):not(.button),
 [role='link'] {
   --link-hover-mix: #fff;
   color: var(--ui-link-fg);

@@ -1,0 +1,32 @@
+.spin {
+  animation: infinite fx-spin 2s linear;
+}
+
+@keyframes fx-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity var(--ui-animation-time) ease;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.hover-pulse {
+  &:hover,
+  &:focus {
+    animation: fx-pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+  }
+}
+
+@keyframes fx-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--pulse, var(--ui-button-bg));
+  }
+}

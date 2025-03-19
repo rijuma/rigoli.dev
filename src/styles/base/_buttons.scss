@@ -3,16 +3,20 @@ button {
   background: transparent;
   border: 0;
   font-size: 1em;
-  text-decoration: none;
 }
 
-.button[role='link'] {
+.button[role='link'],
+.button {
   background: transparent;
   border-top: 0;
   border-right: 0;
   border-left: 0;
   padding: 0;
   cursor: pointer;
+
+  &:hover {
+    color: var(--text-color);
+  }
 }
 
 .button:not([role='link']) {
@@ -25,7 +29,7 @@ button {
   text-align: center;
   color: var(--text-color);
   background: var(--bg-color);
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   border: 0;
   cursor: pointer;
 }
@@ -33,6 +37,7 @@ button {
 .button {
   --bg-color: var(--ui-button-bg);
   --text-color: var(--ui-button-text);
+  text-decoration: none;
 
   &:hover {
     // color: color-mix(in hsl, var(--text-color), var(--ui-alt-mix) 10%);

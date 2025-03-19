@@ -53,7 +53,7 @@ export async function getGithubUserData() {
   }
 }
 
-const TTL = 60 * 60 * 1000 // 1 hour cache
+const TTL = 5 * 60 * 1000 // 5 minutes cache (Github has 60 requests per minute for unauthenticated users)
 
 // This is a global variable. It would be shared on every render for every request.
 let cache:
