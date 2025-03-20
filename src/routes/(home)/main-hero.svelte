@@ -36,7 +36,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 1em;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
 
   .info {

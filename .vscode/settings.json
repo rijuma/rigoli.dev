@@ -2,7 +2,8 @@
   "scss.lint.unknownAtRules": "ignore",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "always"
   },
   "files.associations": {
     "**/*.mdx": "markdown"

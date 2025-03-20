@@ -6,8 +6,9 @@
     tooltip?: string
     value: number
     max?: number
+    hint?: string
   }
-  let { label, tooltip, value, max = 10 }: Props = $props()
+  let { label, hint, tooltip, value, max = 10 }: Props = $props()
 </script>
 
 <div
@@ -16,9 +17,16 @@
   data-tooltip={tooltip}
 >
   <div class="label" aria-hidden="true">
-    {label}
-    {#if tooltip}
-      <span class="questionmark"><CircleHelp /></span>
+    <div class="label">
+      {label}
+      {#if tooltip}
+        <span class="questionmark"><CircleHelp /></span>
+      {/if}
+    </div>
+    {#if hint}
+      <div class="hint">
+        {hint}
+      </div>
     {/if}
   </div>
   <div class="gauge" style={`--value: ${value}; --max: ${max};`} aria-hidden="true"></div>
@@ -47,6 +55,12 @@
     line-height: 1.2;
     align-items: center;
     font-weight: bold;
+    justify-content: space-between;
+  }
+
+  .hint {
+    font-weight: normal;
+    font-size: 0.8em;
   }
 
   .questionmark {

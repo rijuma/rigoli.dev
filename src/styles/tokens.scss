@@ -18,8 +18,13 @@
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
+  // Tooltip {
+  --ui-tooltip-color: #{$black};
+  --ui-tooltip-bg: #{$almost-white};
+
   // z-indexes
-  --ui-z-header: 10;
+  --ui-z-header: 100;
+  --ui-z-tooltips: 50;
 }
 
 @include bp(md) {

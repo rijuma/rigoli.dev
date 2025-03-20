@@ -13,9 +13,9 @@
 
 <style lang="scss">
   footer {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     text-align: center;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
   }
 
   a {

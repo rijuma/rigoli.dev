@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { transition } from '$lib/utils'
-  import { ChevronDown, ChevronRight, ChevronUp } from '@lucide/svelte'
   import { expanded } from '$lib/stores'
+  import { transition } from '$lib/utils'
+  import { ChevronDown, ChevronUp } from '@lucide/svelte'
 
   import type { TimelineEntry } from '$lib/types'
 

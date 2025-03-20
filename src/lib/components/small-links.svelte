@@ -6,14 +6,13 @@
 
   type Props = {
     compact?: boolean
-    forceVertical?: boolean
   }
-  let { compact = false, forceVertical = false }: Props = $props()
+  let { compact = false }: Props = $props()
 
   let github = $derived(page.data?.github)
 </script>
 
-<ul class="links" class:compact class:vertical={forceVertical} aria-label="Social links and resume">
+<ul class="links" class:compact aria-label="Social links and resume">
   <li>
     <a
       class="link linkedin"
@@ -23,7 +22,9 @@
       aria-label="Marcos' Linkedin profile"
     >
       <LinkedinIcon />
-      <div class="label">LinkedIn <ExternalLink /></div>
+      {#if !compact}
+        <div class="label">LinkedIn <ExternalLink /></div>
+      {/if}
     </a>
   </li>
   <li>
@@ -35,27 +36,35 @@
       aria-label="Marcos' Github profile"
     >
       <GithubIcon />
-      <div class="label">GitHub <ExternalLink /></div>
+      {#if !compact}
+        <div class="label">GitHub <ExternalLink /></div>
+      {/if}
     </a>
   </li>
   <li>
     <a class="link block" href={RESUME_URL} target="_blank" rel="noopener">
       <FileText />
-      <div class="label">Resume <ExternalLink /></div>
+      {#if !compact}
+        <div class="label">Resume <ExternalLink /></div>
+      {/if}
     </a>
   </li>
   {#if github.hireable}
     <li>
       <a class="link block" href={CALENDLY_LINK} target="_blank" rel="noopener">
         <CalendarClock />
-        <div class="label">Schedule a meeting <ExternalLink /></div>
+        {#if !compact}
+          <div class="label">Schedule a meeting <ExternalLink /></div>
+        {/if}
       </a>
     </li>
   {:else}
     <li>
       <a class="link block" href={`mailto: ${EMAIL}`} target="_blank" rel="noopener">
         <AtSign />
-        <div class="label">Email me</div>
+        {#if !compact}
+          <div class="label">Email me</div>
+        {/if}
       </a>
     </li>
   {/if}
@@ -64,9 +73,8 @@
 <style lang="scss">
   .links {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1.2em;
+    gap: 1em;
   }
 
   .link {
@@ -83,15 +91,14 @@
     }
   }
 
-  .label {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
+  .link .label {
+    display: none;
   }
 
   @include bp(md) {
-    .links:not(.vertical) {
-      flex-direction: row;
+    .link .label {
+      display: flex;
+      align-items: center;
     }
   }
 </style>

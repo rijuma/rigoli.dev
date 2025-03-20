@@ -21,7 +21,7 @@
   {github.bio}<br />
   {#if !more}
     <button class="button inline" type="button" onclick={toggle} aria-label="Read more about me"
-      >...more &gt;</button
+      >...more</button
     >
   {/if}
 </p>
@@ -40,7 +40,7 @@
     class:show={less}
     type="button"
     onclick={toggle}
-    aria-label="Read less about me">&lt; less...</button
+    aria-label="Read less about me">less...</button
   >
 {/if}
 

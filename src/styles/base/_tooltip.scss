@@ -1,0 +1,64 @@
+// Based on https://picocss.com/docs/tooltip
+
+[data-tooltip] {
+  position: relative;
+  --bg: var(--tooltip-bg, var(--ui-tooltip-bg));
+  --color: var(--tooltip-color, var(--ui-tooltip-color));
+
+  &:after,
+  &:before {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    overflow: hidden;
+    color: var(--color);
+    opacity: 0;
+    pointer-events: none;
+    z-index: var(--ui-z-tooltips);
+  }
+
+  &:before {
+    content: attr(data-tooltip);
+    width: max-content;
+    max-width: 15rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background: var(--bg);
+    text-align: left;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transform: translate(-50%, -0.25rem);
+  }
+
+  &:after {
+    --tooltip-show-transform: translate(-50%, 0rem);
+    content: '';
+    padding: 0;
+    border-color: var(--bg) transparent;
+    border-width: 0.3rem 0.3rem 0;
+    border-style: solid solid none;
+    transform: translate(-50%);
+  }
+
+  // When focus
+  &:focus,
+  &:hover {
+    &:before,
+    &:after {
+      transform: translate(-50%, 0.75rem);
+      animation-duration: 0.2s;
+      animation-fill-mode: forwards;
+      animation-name: fx-tooltip-slide;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes fx-tooltip-slide {
+  100% {
+    transform: var(--tooltip-show-transform, translate(-50%, -0.25rem));
+  }
+}
