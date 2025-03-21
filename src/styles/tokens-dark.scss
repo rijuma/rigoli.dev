@@ -30,6 +30,10 @@
   --ui-link-fg: var(--ui-accent-color);
   --ui-link-fg-hover: var(--ui-accent-color-high);
 
+  // Tooltip
+  --ui-tooltip-color: #{$black};
+  --ui-tooltip-bg: #{$almost-white};
+
   --ui-dark-primary-text: #{$vermilion-90};
   --ui-light-primary-text: #{$vermilion-10};
   --ui-lighter-primary-text: #{$vermilion-05};
