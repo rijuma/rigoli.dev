@@ -51,16 +51,20 @@
 
   .label {
     display: flex;
-    gap: 0.5ch;
+    gap: 1rem;
     line-height: 1.2;
     align-items: center;
     font-weight: bold;
     justify-content: space-between;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hint {
     font-weight: normal;
     font-size: 0.8em;
+    white-space: nowrap;
   }
 
   .questionmark {
