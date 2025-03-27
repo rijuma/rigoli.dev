@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { transition } from '$lib/utils'
-  import { Typewriter } from '$lib/components'
   import { page } from '$app/state'
+  import { Typewriter } from '$lib/components'
+  import { transition } from '$lib/utils'
 
   let more = $state(false)
   let less = $state(false)
@@ -29,7 +29,7 @@
   <div class="more" aria-live="polite">
     <Typewriter
       text={[
-        "I'm a seasoned developer with more than 8 years on the field blending the art of design with programming skill to deliver an immersive, engaging and efficient user experience through best coding practices coding, proactive feature optimization and relentless debugging.",
+        "I'm a seasoned developer with more than 8 years on the field blending the art of design with programming skill to deliver an immersive, engaging and efficient user experience through best coding practices, proactive feature optimization and relentless debugging.",
         "I'm passionate about professional growth, learning and sharing knowledge.",
       ]}
       onEnd={showLessButton}
