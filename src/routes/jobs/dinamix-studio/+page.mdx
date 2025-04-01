@@ -6,6 +6,7 @@ from: [2010, 2]
 to: [2015, 7]
 role: 'Full-stack developer'
 tech: ['PHP', 'Vanilla JS', 'jQuery']
+websites: ['https://dinamixstudio.com']
 intro:
   [
     'One of my first legit jobs on web development, and a long one as well.',
@@ -14,12 +15,11 @@ intro:
 ---
 
 <script context="module">
-  import {MacFrame} from '$lib/components'; export {MacFrame};
+  import {MacFrame} from '$lib/components'; export {MacFrame}; import {JobHeader} from
+  '$lib/components'; export {JobHeader};
 </script>
 
-# {name}
-
-Website: https://dinamixstudio.com
+<JobHeader {pic} {name} {from} {to} {role} {tech} {websites} />
 
 <MacFrame shadowBottom>
   <img src="/img/jobs/dinamix-studio-screenshot.webp" alt="Dinamix Studio" />

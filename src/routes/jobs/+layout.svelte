@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Navigation from './navigation.svelte'
   import { page } from '$app/state'
   import { SiteFooter } from '$lib/components'
-  import FooterNavigation from './footer-navigation.svelte'
   import Seo from '$lib/components/seo.svelte'
+  import FooterNavigation from './footer-navigation.svelte'
+  import Navigation from './navigation.svelte'
 
-  import type { Snippet } from 'svelte'
   import type { TimelineEntry } from '$lib/types'
+  import type { Snippet } from 'svelte'
 
   let { children }: { children: Snippet } = $props()
 
@@ -36,9 +36,15 @@
 <style lang="scss">
   main {
     flex-grow: 1;
-    padding: 4rem var(--ui-page-inline-padding);
+    padding: 1rem var(--ui-page-inline-padding) 2rem;
     width: 100%;
     margin-inline: auto;
     box-sizing: border-box;
+  }
+
+  @include bp(md) {
+    main {
+      padding-block: 4rem;
+    }
   }
 </style>

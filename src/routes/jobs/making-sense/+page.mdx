@@ -6,6 +6,7 @@ from: [2017, 4]
 to: [2018, 8]
 role: 'Frontend developer'
 tech: ['ReactJS', 'Vanilla JS', 'jQuery']
+websites: ['https://makingsense.com']
 intro:
   [
     "The perfect blend between UX and UI. I've worked with very talented and resourceful people.",
@@ -14,12 +15,11 @@ intro:
 ---
 
 <script context="module">
-  import {MacFrame} from '$lib/components'; export {MacFrame};
+  import {MacFrame} from '$lib/components'; export {MacFrame}; import {JobHeader} from
+  '$lib/components'; export {JobHeader};
 </script>
 
-# {name}
-
-Website: https://makingsense.com
+<JobHeader {pic} {name} {from} {to} {role} {tech} {websites} />
 
 <MacFrame shadowBottom>
   <img src="/img/jobs/making-sense-screenshot.webp" alt="Making Sense" />

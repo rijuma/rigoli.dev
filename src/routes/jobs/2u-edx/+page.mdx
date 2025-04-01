@@ -3,8 +3,10 @@ name: '2U / edX'
 slug: '2u-edx'
 pic: '/img/companies/2u-edx.svg'
 from: [2020, 3]
+to: [2025, 3]
 role: 'Full-stack developer (Contractor)'
 tech: ['NodeJS', 'ReactJS', 'Python (Django)']
+websites: ['https://2u.com', 'https://edx.org']
 intro:
   [
     "I've worked for five years on this ever shifting company, starting with 2U's own platform and later shifted to edX Platform when the company acquired edX.",
@@ -13,12 +15,11 @@ intro:
 ---
 
 <script context="module">
-  import {MacFrame} from '$lib/components'; export {MacFrame};
+  import {MacFrame} from '$lib/components'; export {MacFrame}; import {JobHeader} from
+  '$lib/components'; export {JobHeader};
 </script>
 
-# {name}
-
-Websites: https://2u.com, https://edx.org
+<JobHeader {pic} {name} {from} {to} {role} {tech} {websites} />
 
 Contractor firm: [EPWERY](https://epwery.com/)
 

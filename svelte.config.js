@@ -1,8 +1,8 @@
-import { mdsvex } from 'mdsvex'
 import adapter from '@sveltejs/adapter-node'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
-import urls from "rehype-urls"
+import { mdsvex } from 'mdsvex'
 import slug from "rehype-slug"
+import urls from "rehype-urls"
 
 const checkUrl = (url, node) => {
 

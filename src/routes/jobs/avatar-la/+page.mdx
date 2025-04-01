@@ -6,6 +6,7 @@ from: [2015, 7]
 to: [2017, 4]
 role: 'Full-stack developer'
 tech: ['Codeigniter (PHP)', 'MongoDB', 'jQuery']
+websites: ['https://avatarla.com']
 intro:
   [
     "On this company I've learned my ways into bigdata and data processing, as well as working in PHP, Wordpress and my fair share of frontend work.",
@@ -13,12 +14,11 @@ intro:
 ---
 
 <script context="module">
-  import {MacFrame} from '$lib/components'; export {MacFrame};
+  import {MacFrame} from '$lib/components'; export {MacFrame}; import {JobHeader} from
+  '$lib/components'; export {JobHeader};
 </script>
 
-# {name}
-
-Website: https://avatarla.com
+<JobHeader {pic} {name} {from} {to} {role} {tech} {websites} />
 
 <MacFrame shadowBottom>
   <img src="/img/jobs/avatar-la-screenshot.webp" alt="Avatar LA" />
