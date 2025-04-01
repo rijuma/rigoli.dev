@@ -63,7 +63,7 @@
       </p>
 
       <div class="tech">
-        <span class="label">Tech used:</span>
+        <span class="label">Tech:</span>
         <ul>
           {#each tech as t}
             <li>{t}</li>
@@ -120,6 +120,7 @@
       gap: 0.5rem;
       margin: 0;
       font-size: 0.8em;
+      flex-wrap: wrap;
     }
 
     li {
