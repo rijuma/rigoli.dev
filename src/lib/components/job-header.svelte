@@ -85,10 +85,6 @@
 </div>
 
 <style lang="scss">
-  .job-heading {
-    margin-block-end: 1rem;
-  }
-
   .split {
     display: flex;
     gap: 2rem;
