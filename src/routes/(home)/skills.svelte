@@ -34,11 +34,31 @@
   </section>
 
   <section>
+    <h3>Databases</h3>
+    <ul class="skill-bars">
+      <li><SkillBar label="Postgres SQL" value={9} hint="6+ years" /></li>
+      <li><SkillBar label="MySQL" value={9} hint="6+ years" /></li>
+      <li><SkillBar label="GraphQL" value={5} hint="2+ years" /></li>
+      <li><SkillBar label="MongoDB" value={5} hint="2+ years" /></li>
+      <li><SkillBar label="Redis" value={4} hint="1+ years" /></li>
+    </ul>
+  </section>
+
+  <section>
     <h3>UI</h3>
     <ul class="skill-bars">
       <li><SkillBar label="HTML5" value={9} hint="8+ years" /></li>
       <li><SkillBar label="CSS / SCSS" value={9} hint="8+ years" /></li>
       <li><SkillBar label="Javascript + Typescript" value={9} hint="8+ years" /></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Utils</h3>
+    <ul class="skill-bars">
+      <li><SkillBar label="Docker + Compose" value={8} hint="6+ years" /></li>
+      <li><SkillBar label="CI/CD" value={7} hint="5+ years" /></li>
+      <li><SkillBar label="Datadog / New Relic" value={6} hint="3+ years" /></li>
     </ul>
   </section>
 </div>
