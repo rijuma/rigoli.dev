@@ -43,3 +43,7 @@ The `Dockerfile` and `compose.yml` are set to be run on a server running [nginx-
 
 > [!IMPORTANT]
 > You can freely use or clone this repository as inspiration to build your own personal website. If you do clone this repo, please make sure to remove any of my personal information.
+
+# Integrations
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/rijuma/rigoli.dev)
