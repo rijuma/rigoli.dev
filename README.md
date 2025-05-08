@@ -4,6 +4,8 @@ Live site: https://rigoli.dev
 
 This was made using the amazing [Sveltekit](https://svelte.dev/docs/kit/) framework.
 
+Take a look at the [Deepwiki analysis](https://deepwiki.com/rijuma/rigoli.dev) if you want a quick overview.
+
 ## Running
 
 If you want it to try it on your local environment, just clone this repository and install dependencies:

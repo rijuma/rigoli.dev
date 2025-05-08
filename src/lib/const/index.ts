@@ -1,3 +1,4 @@
+export * from './deepwiki'
 export * from './github'
-export * from './project'
 export * from './info'
+export * from './project'

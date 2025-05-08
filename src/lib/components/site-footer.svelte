@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { APP_REPO, NAME } from '$lib/const'
+  import { APP_REPO, APP_WIKI, NAME } from '$lib/const'
   import { ExternalLink } from '@lucide/svelte'
 
   const year = new Date().getFullYear()
@@ -8,7 +8,9 @@
 <footer class="footer">
   &copy; {year}
   {NAME} &middot; Like the site?
-  <a href={APP_REPO} target="_blank" rel="external nofollow">Check the repo <ExternalLink /></a>
+  <a href={APP_REPO} target="_blank" rel="external nofollow">Check the repo <ExternalLink /></a> or
+  look at an
+  <a href={APP_WIKI} target="_blank" rel="external nofollow">overview<ExternalLink /></a>.
 </footer>
 
 <style lang="scss">
