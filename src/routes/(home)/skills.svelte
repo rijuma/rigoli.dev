@@ -9,10 +9,10 @@
     <h3>Backend</h3>
     <ul class="skill-bars">
       <li><SkillBar label="Node + Typescript" value={9} hint="5+ years" /></li>
+      <li><SkillBar label="Ruby / Ruby on Rails" value={8} hint="5+ years" /></li>
       <li><SkillBar label="PHP / Codeigniter" value={7} hint="4+ years" /></li>
       <li><SkillBar label="Svelte/kit" value={6} hint="2+ years" /></li>
       <li><SkillBar label="Python / Django" value={6} hint="2+ years" /></li>
-      <li><SkillBar label="Ruby / Ruby on Rails" value={5} hint="1+ years" /></li>
     </ul>
   </section>
 
