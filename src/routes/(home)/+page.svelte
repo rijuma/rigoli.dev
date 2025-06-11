@@ -1,10 +1,11 @@
 <script lang="ts">
-  import MainHero from './main-hero.svelte'
-  import Intro from './intro.svelte'
-  import Skills from './skills.svelte'
-  import Experience from './experience.svelte'
   import Contact from './contact.svelte'
+  import Demos from './demos.svelte'
+  import Experience from './experience.svelte'
+  import Intro from './intro.svelte'
+  import MainHero from './main-hero.svelte'
   import Navigation from './navigation.svelte'
+  import Skills from './skills.svelte'
 
   let { data } = $props()
 
@@ -33,6 +34,12 @@
 <section>
   <div class="container-md">
     <Experience jobs={data.jobs} />
+  </div>
+</section>
+
+<section>
+  <div class="container-md">
+    <Demos />
   </div>
 </section>
 
