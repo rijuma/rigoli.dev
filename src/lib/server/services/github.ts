@@ -1,5 +1,5 @@
+import { GITHUB_API_URL, GITHUB_TAG, GITHUB_URL } from '$lib/const'
 import { z } from 'zod'
-import { GITHUB_TAG, GITHUB_URL, GITHUB_API_URL } from '$lib/const'
 
 import type { GithubUser } from '$lib/types'
 
@@ -8,7 +8,7 @@ const githubUserApiSchema = z
     html_url: z.string().url(),
     avatar_url: z.string().url(),
     bio: z.string(),
-    hireable: z.boolean(),
+    hireable: z.boolean().nullable().default(false),
   })
   .transform(({ html_url: profileUrl, avatar_url: avatarUrl, ...rest }) => ({
     profileUrl,
@@ -88,7 +88,10 @@ export async function getCachedGithubUserData() {
     if (!userData) throw new Error()
 
     cache = {
-      github: userData,
+      github: {
+        ...userData,
+        hireable: false,
+      },
       exp: Date.now(),
     }
 
