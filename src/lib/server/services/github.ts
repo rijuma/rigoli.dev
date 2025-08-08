@@ -8,7 +8,11 @@ const githubUserApiSchema = z
     html_url: z.string().url(),
     avatar_url: z.string().url(),
     bio: z.string(),
-    hireable: z.boolean().nullable().default(false),
+    hireable: z
+      .boolean()
+      .nullable()
+      .default(false)
+      .transform((value) => value ?? false),
   })
   .transform(({ html_url: profileUrl, avatar_url: avatarUrl, ...rest }) => ({
     profileUrl,
