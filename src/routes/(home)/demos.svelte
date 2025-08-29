@@ -23,7 +23,7 @@
       </p>
     </ProjectEntry>
   </li>
-  <li>
+  <!-- <li>
     <ProjectEntry
       title="Frontend Challenge (Svelte)"
       url={['https://svelte-challenge.rigoli.dev', 'https://github.com/rijuma/svelte-challenge']}
@@ -37,8 +37,7 @@
       </p>
     </ProjectEntry>
   </li>
-
-  <!-- <li>
+  <li>
     <ProjectEntry
       title="GraphQL Challenge (React + GraphQL)"
       url={['https://cside-challenge.rigoli.dev', 'https://github.com/rijuma/cside-challenge']}
