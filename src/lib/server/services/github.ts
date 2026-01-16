@@ -5,8 +5,8 @@ import type { GithubUser } from '$lib/types'
 
 const githubUserApiSchema = z
   .object({
-    html_url: z.string().url(),
-    avatar_url: z.string().url(),
+    html_url: z.url(),
+    avatar_url: z.url(),
     bio: z.string(),
     hireable: z
       .boolean()
@@ -24,7 +24,7 @@ const githubUserOrgsSchema = z.array(
   z
     .object({
       login: z.string(),
-      avatar_url: z.string().url(),
+      avatar_url: z.url(),
       description: z.string(),
     })
     .transform(({ login: tag, avatar_url: avatarUrl, ...rest }) => ({
