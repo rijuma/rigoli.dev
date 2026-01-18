@@ -89,7 +89,7 @@ export async function getCachedGithubUserData() {
     // Else, we fetch the github endpoint and save it to the cache.
     const userData = await fetchGithub()
 
-    if (!userData) throw new Error()
+    if (!userData) throw new Error('Failed to fetch GitHub user data')
 
     cache = {
       github: {
@@ -100,7 +100,9 @@ export async function getCachedGithubUserData() {
     }
 
     return userData
-  } catch (e) {}
+  } catch (e) {
+    // Intentionally silent - fallback to cached data below
+  }
 
   // If fetching fails, we return the last cached data anyways (if any).
   if (cache) return cache.github

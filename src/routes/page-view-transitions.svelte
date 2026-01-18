@@ -3,7 +3,6 @@
 
   // Makes use of the view transition on client routing.
   onNavigate((navigation) => {
-    console.log('Navigate!')
     if (!document.startViewTransition) return
 
     return new Promise((resolve) => {

@@ -5,15 +5,14 @@
   import { page } from '$app/state'
 
   type Props = {
-    compact?: boolean
     forceVertical?: boolean
   }
-  let { compact = false, forceVertical = false }: Props = $props()
+  let { forceVertical = false }: Props = $props()
 
   let github = $derived(page.data?.github)
 </script>
 
-<ul class="links" class:compact class:vertical={forceVertical} aria-label="Social links and resume">
+<ul class="links" class:vertical={forceVertical} aria-label="Social links and resume">
   <li>
     <a
       class="link linkedin"
@@ -44,7 +43,7 @@
       <div class="label">Resume <ExternalLink /></div>
     </a>
   </li>
-  {#if github.hireable}
+  {#if github?.hireable}
     <li>
       <a class="link block" href={CALENDLY_LINK} target="_blank" rel="noopener">
         <CalendarClock />

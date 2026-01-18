@@ -4,12 +4,9 @@
     tag: string
   }
   let { name, tag }: Props = $props()
-
-  let triggered = $state(false)
 </script>
 
 <div
-  class:triggered
   class="nametag"
   style="--count: {Math.max(name.length, tag.length)}"
   aria-label={`${name} a.k.a. ${tag}`}

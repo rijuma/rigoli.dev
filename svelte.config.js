@@ -5,8 +5,6 @@ import slug from "rehype-slug"
 import urls from "rehype-urls"
 
 const checkUrl = (url, node) => {
-
-
   if (node.tagName === "a") {
     node.properties.class = "link-external"
 

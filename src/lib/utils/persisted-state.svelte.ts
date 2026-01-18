@@ -30,6 +30,12 @@ export function persistedState<T, S = any>(
           : (savedValue as T)
       } catch (e) {}
     }
+  }
+
+  let state: T = $state(current)
+
+  if (typeof window !== 'undefined') {
+    const storage = store === 'local' ? localStorage : sessionStorage
 
     $effect.root(() => {
       $effect(() => {
@@ -39,8 +45,6 @@ export function persistedState<T, S = any>(
       })
     })
   }
-
-  let state: T = $state(current)
 
   return {
     get value() {
@@ -52,12 +56,14 @@ export function persistedState<T, S = any>(
     },
 
     clearStorage() {
-      localStorage.removeItem(key)
+      const storage = store === 'local' ? localStorage : sessionStorage
+      storage.removeItem(key)
     },
 
     reset() {
       state = initial
-      localStorage.removeItem(key)
+      const storage = store === 'local' ? localStorage : sessionStorage
+      storage.removeItem(key)
     },
   }
 }

@@ -8,7 +8,7 @@
       // Little script to init the page theme without flickering.
       // Not ideal, but it's late in the day and I want to finish it.
       try {
-        const themeData = JSON.parse(window.localStorage.get('color-mode'))
+        const themeData = JSON.parse(window.localStorage.getItem('color-mode'))
         let theme = themeData.value
         if (!theme)
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'

@@ -26,7 +26,10 @@ $bps: (
   /** Combining breakpoints dependencies */
   @each $key, $value in (min-width: $from, max-width: $to) {
     @if $value {
-      $modifier: if($key == 'max-width', -1px, 0px);
+      $modifier: 0px;
+      @if $key == 'max-width' {
+        $modifier: -1px;
+      }
       $condition: ' and (#{$key}: #{map.get($bps, $value) - $modifier})';
       $conditions: string.insert($conditions, $condition, -1);
     }
