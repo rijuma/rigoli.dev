@@ -1,7 +1,7 @@
 # Reference: https://towardsserverless.com/articles/dockerize-sveltekit-ssr-webapp
 
 # Build the first stage with alpine node image and name as build.
-FROM node:23-alpine3.20 as build
+FROM node:24-alpine as build
 
 # Update and install the latest dependencies on docker base image.
 # Add non root user to the docker image and set the user.
@@ -18,7 +18,7 @@ COPY --chown=svelteuser:svelteuser . /app
 RUN npm install && npm run build
 
 # We are using multi stage build process to keep the image size as small as possible
-FROM node:23-alpine3.20
+FROM node:24-alpine
 
 # Update and install latest dependencies, add dumb-init package
 # add and set non root user.
