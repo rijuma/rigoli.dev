@@ -5,14 +5,26 @@
 <h2>Demos and projects</h2>
 
 <p>
-  The following are some personal projects and challenges I've been working on my free time and
-  while job hunting.
+  The following are some personal projects and challenges I've been working on in my free time.
 </p>
 
 <ul>
   <li>
     <ProjectEntry
-      title="Psicoenlce"
+      title="ctxhelpr"
+      url="https://github.com/rijuma/ctxhelpr"
+      pic="/img/projects/ctxhelpr.webp"
+    >
+      <p>
+        A Rust-based MCP server that saves time and tokens by semantically indexing your codebase
+        with tree-sitter. It provides targeted navigation tools backed by a local SQLite database,
+        supporting TypeScript, Python, Rust, Ruby, and Markdown.
+      </p>
+    </ProjectEntry>
+  </li>
+  <li>
+    <ProjectEntry
+      title="Psicoenlace"
       url="https://psicoenlace.ar"
       pic="/img/projects/psicoenlace.ar.webp"
     >

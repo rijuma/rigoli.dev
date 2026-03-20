@@ -16,7 +16,7 @@
 <div class="project-entry">
   <div class="heading">
     <h3>{title}</h3>
-    {#if urls}
+    {#if url}
       <ul class="links">
         {#each urls as url}
           <li class="link">
@@ -27,7 +27,7 @@
     {/if}
   </div>
   <div class="pic">
-    {#if urls}
+    {#if url}
       <a href={urls[0]} target="_blank" rel="external noopener">
         <img src={pic} alt="Image preview for {title}." />
       </a>
@@ -36,7 +36,7 @@
     {/if}
   </div>
   <div class="content">
-    {@render children?.()}
+    {@render children()}
   </div>
 </div>
 
