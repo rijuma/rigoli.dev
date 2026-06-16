@@ -35,5 +35,8 @@
     "rehype-urls": "^1.2.0",
     "svelte-inview": "^4.0.4",
     "zod": "^4.3.5"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
   }
 }
