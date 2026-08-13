@@ -1,0 +1,14 @@
+# Keep the build context small and free of secrets.
+**/node_modules
+build
+.svelte-kit
+.git
+.gitignore
+.github
+infra/.env
+infra/.env.*
+**/*.log
+.vscode
+.idea
+.DS_Store
+README.md

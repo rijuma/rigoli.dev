@@ -1,0 +1,17 @@
+# Local development delta: dev image with hot reload via mounted sources.
+# Local-only env/secrets live in infra/.env (gitignored, optional).
+services:
+  web:
+    build:
+      target: dev
+    env_file:
+      # Resolved from the project root (--project-directory), not this folder.
+      - path: infra/.env
+        required: false
+    volumes:
+      - ./src:/app/src
+      - ./static:/app/static
+    develop:
+      watch:
+        - action: rebuild
+          path: ./package.json

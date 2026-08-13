@@ -1,0 +1,58 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    # Skip in the original template repo (no production environment there)
+    if: ${{ !github.event.repository.is_template }}
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: SSH setup
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          # Environment variable set in the repo: deploy@your-server-ip
+          SERVER_SSH: ${{ vars.SERVER_SSH }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          # Prefer a pinned host key (set the SSH_KNOWN_HOSTS secret to the
+          # output of `ssh-keyscan <server>`); fall back to TOFU if unset.
+          if [ -n "$SSH_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            echo "::warning::SSH_KNOWN_HOSTS not set — trusting host key on first use"
+            ssh-keyscan -H "${SERVER_SSH#*@}" >> ~/.ssh/known_hosts
+          fi
+
+      - name: Create docker context
+        run: docker context create prod --docker "host=ssh://${{ vars.SERVER_SSH }}"
+
+      - name: Write production env file
+        env:
+          ENV_FILE: ${{ secrets.ENV_FILE }}
+        run: |
+          umask 077
+          printf '%s' "$ENV_FILE" > infra/.env.remote
+
+      - uses: extractions/setup-just@v4
+
+      - name: Deploy
+        run: just deploy prod
+
+      - name: Status
+        run: just remote-ps prod

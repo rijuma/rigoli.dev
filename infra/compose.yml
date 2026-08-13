@@ -1,0 +1,23 @@
+x-logging: &logging
+  logging:
+    driver: json-file
+    options:
+      max-size: '10m'
+      max-file: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.web
+    networks:
+      - default
+      - proxy
+    labels:
+      caddy: rigoli.localhost
+      caddy.reverse_proxy: '{{upstreams 3000}}'
+    <<: *logging
+
+networks:
+  proxy:
+    external: true
