@@ -23,6 +23,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Hubbify
-infra/.env
-infra/.env.remote
+envs/*/.env
 .claude/settings.local.json

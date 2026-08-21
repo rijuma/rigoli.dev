@@ -10,11 +10,16 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  DEPLOY_ENV: prod
+
 jobs:
   deploy:
     # Skip in the original template repo (no production environment there)
     if: ${{ !github.event.repository.is_template }}
     runs-on: ubuntu-latest
+    # The GitHub `production` environment holds the secrets and protection
+    # rules; it maps to the envs/prod folder this workflow targets.
     environment: production
 
     steps:
@@ -24,7 +29,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
-          # Environment variable set in the repo: deploy@your-server-ip
+          # Environment variable set in the environment: deploy@your-server-ip
           SERVER_SSH: ${{ vars.SERVER_SSH }}
         run: |
           mkdir -p ~/.ssh
@@ -39,20 +44,22 @@ jobs:
             ssh-keyscan -H "${SERVER_SSH#*@}" >> ~/.ssh/known_hosts
           fi
 
-      - name: Create docker context
-        run: docker context create prod --docker "host=ssh://${{ vars.SERVER_SSH }}"
+      - name: Create the docker context the env expects
+        run: |
+          source "envs/$DEPLOY_ENV/server.conf"
+          docker context create "$DOCKER_CONTEXT" --docker "host=ssh://${{ vars.SERVER_SSH }}"
 
-      - name: Write production env file
+      - name: Write env file
         env:
           ENV_FILE: ${{ secrets.ENV_FILE }}
         run: |
           umask 077
-          printf '%s' "$ENV_FILE" > infra/.env.remote
+          printf '%s' "$ENV_FILE" > "envs/$DEPLOY_ENV/.env"
 
       - uses: extractions/setup-just@v4
 
       - name: Deploy
-        run: just deploy prod
+        run: just deploy "$DEPLOY_ENV"
 
       - name: Status
-        run: just remote-ps prod
+        run: just ps "$DEPLOY_ENV"

@@ -1,4 +1,4 @@
-# Remote delta: real domain (overrides only the `caddy` label; compose merges
+# Prod delta: real domain (overrides only the `caddy` label; compose merges
 # labels by key), production image, and hardening.
 services:
   web:
@@ -8,7 +8,7 @@ services:
       # Production secrets. The deploy workflow writes this file on the runner
       # from the GitHub environment's ENV_FILE secret; it never lives locally.
       # Resolved from the project root (--project-directory), not this folder.
-      - path: infra/.env.remote
+      - path: envs/prod/.env
         required: false
     restart: unless-stopped
     mem_limit: 512m
@@ -17,7 +17,7 @@ services:
     labels:
       caddy: rigoli.dev
     healthcheck:
-      test: ['CMD', 'wget', '-qO-', 'http://localhost:3000/']
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:3000/']
       interval: 10s
       timeout: 3s
       retries: 3
